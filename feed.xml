@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Informational Ethics</title>
+    <title>Information Ethics</title>
     <description>의료인문학, 의료윤리, 텍스트 분석을 중심으로 한 데이터 분석
 </description>
     <link>https://junhewk.github.io//</link>
     <atom:link href="https://junhewk.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Jul 2017 15:10:07 -0400</pubDate>
-    <lastBuildDate>Tue, 25 Jul 2017 15:10:07 -0400</lastBuildDate>
+    <pubDate>Tue, 25 Jul 2017 15:13:58 -0400</pubDate>
+    <lastBuildDate>Tue, 25 Jul 2017 15:13:58 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
