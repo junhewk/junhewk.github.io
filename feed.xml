@@ -4,10 +4,10 @@
     <title>Informational Ethics</title>
     <description>의료인문학, 의료윤리, 텍스트 분석을 중심으로 한 데이터 분석
 </description>
-    <link>http://junhewk.github.io/</link>
-    <atom:link href="http://junhewk.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Jul 2017 14:46:28 -0400</pubDate>
-    <lastBuildDate>Tue, 25 Jul 2017 14:46:28 -0400</lastBuildDate>
+    <link>https://junhewk.github.io//</link>
+    <atom:link href="https://junhewk.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 25 Jul 2017 15:05:59 -0400</pubDate>
+    <lastBuildDate>Tue, 25 Jul 2017 15:05:59 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -388,8 +388,8 @@ Floridi, L. and J. W. Sanders, 1999, “Entropy as Evil in Information Ethics,�
 &lt;p&gt;Woodbury, M. C., 2010, Computer and Information Ethics, 2nd edition; 1st edition, 2003, Champaign, IL: Stipes Publishing LLC.&lt;/p&gt;
 </description>
         <pubDate>Sat, 22 Jul 2017 06:24:30 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/07/22/information-technology-and-moral-values.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/07/22/information-technology-and-moral-values.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/07/22/information-technology-and-moral-values.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/07/22/information-technology-and-moral-values.html</guid>
         
         <category>ethics</category>
         
@@ -906,8 +906,8 @@ Floridi, L. and J. W. Sanders, 1999, “Entropy as Evil in Information Ethics,�
 &lt;p&gt;일단 이번에는 Word Vector의 소개와, 어떤 결과를 만들 수 있는지만 확인해 보았습니다. 개인적으로 의과와는 구분되는 치과의 특징을 확인해보고 싶었는데 이 내용을 적으려면 너무 길어질 것 같네요. 다음번에 좀 더 세부적인 내용을 소개하도록 할게요!&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Jul 2017 09:28:00 -0400</pubDate>
-        <link>http://junhewk.github.io/text/2017/07/18/customer-complaint.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/text/2017/07/18/customer-complaint.html</guid>
+        <link>https://junhewk.github.io//text/2017/07/18/customer-complaint.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//text/2017/07/18/customer-complaint.html</guid>
         
         <category>text</category>
         
@@ -1226,8 +1226,8 @@ Floridi, L. and J. W. Sanders, 1999, “Entropy as Evil in Information Ethics,�
 &lt;p&gt;Zack, Naomi, 2005. Inclusive Feminism: A Third Wave Theory of Women’s Commonality, Lanham, MD: Rowman and Littlefield.&lt;/p&gt;
 </description>
         <pubDate>Sun, 16 Jul 2017 18:47:30 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/07/16/feminist-perspectives-on-power.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/07/16/feminist-perspectives-on-power.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/07/16/feminist-perspectives-on-power.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/07/16/feminist-perspectives-on-power.html</guid>
         
         <category>ethics</category>
         
@@ -1578,8 +1578,8 @@ Their argument to the room of technologically inclined students was that Wall St
 &lt;p&gt;텍스트 분석에서 활용할 수 있는 재미있는 API라서 소개해 보았습니다. 다음 글에서는 어떻게 인터넷의 글을 모아서 분석할 수 있는지를 소개해 보도록 하겠습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;rvest&lt;/code&gt;랑 결합해서 소개할지, 크롤링은 &lt;code class=&quot;highlighter-rouge&quot;&gt;scrapy&lt;/code&gt;로 받을지는 조금 고민이네요. 곧 뵙겠습니다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 10 Jul 2017 06:10:20 -0400</pubDate>
-        <link>http://junhewk.github.io/text/2017/07/10/monkeylearn-in-R.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/text/2017/07/10/monkeylearn-in-R.html</guid>
+        <link>https://junhewk.github.io//text/2017/07/10/monkeylearn-in-R.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//text/2017/07/10/monkeylearn-in-R.html</guid>
         
         <category>R</category>
         
@@ -1718,8 +1718,8 @@ Their argument to the room of technologically inclined students was that Wall St
 &lt;p&gt;&lt;sup&gt;12&lt;/sup&gt;SE “Software Engineering Code of Ethics and Professional Practice”, adopted by the IEEE-CS and the ACM. (1998) http://computer.org/computer/code-of-ethics.pdf. Also republished in &lt;em&gt;Science and Engineering Ethics&lt;/em&gt; 7(2): 231-238.&lt;/p&gt;
 </description>
         <pubDate>Sun, 09 Jul 2017 06:09:00 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/07/09/informatics-and-professional-responsibility.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/07/09/informatics-and-professional-responsibility.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/07/09/informatics-and-professional-responsibility.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/07/09/informatics-and-professional-responsibility.html</guid>
         
         <category>ethics</category>
         
@@ -2092,8 +2092,8 @@ Their argument to the room of technologically inclined students was that Wall St
 &lt;p&gt;&lt;a href=&quot;http://blogs.lse.ac.uk/politicsandpolicy/nudges-manipulate-except-when-they-dont/&quot;&gt;Wilkinson, Martin, ‘Nudges manipulate, except when they don’t”, August 2013.&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 06 Jul 2017 06:12:10 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/07/06/paternalism.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/07/06/paternalism.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/07/06/paternalism.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/07/06/paternalism.html</guid>
         
         <category>ethics</category>
         
@@ -2245,8 +2245,8 @@ Their argument to the room of technologically inclined students was that Wall St
 &lt;p&gt;Kermode, &lt;em&gt;The Sense of an Ending&lt;/em&gt;, 17.&lt;/p&gt;
 </description>
         <pubDate>Mon, 03 Jul 2017 13:25:30 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/07/03/narrative-ethics.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/07/03/narrative-ethics.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/07/03/narrative-ethics.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/07/03/narrative-ethics.html</guid>
         
         <category>ethics</category>
         
@@ -2537,8 +2537,8 @@ Cummings, M. L. 2004. “Automation Bias in Intelligent Time Critical Decision S
 &lt;p&gt;&lt;sup&gt;3&lt;/sup&gt; 인공지능에 관한 오랜 철학적 논쟁은 컴퓨터로 정신을 만들어낼 수 있는가 하는 논제를 중심에 두고 있습니다(맥콜덕 1979). 인공지능의 비판자들은 인간 정신과 컴퓨터는 동일한 원칙으로 운용된다는 주장에 이의를 제기합니다(그라우바드 1988). 그들은 지식과 지능은 컴퓨터와 수학, 논리 모형으로 파악할 수 있다는 가정을 반박합니다. 이 비판자들은 인간에게만 있고 기계에는 빠져 있는 내재적 특성, 예컨대 감정, 상식, 지향성 등을 나열합니다. 비판자 중 한 명인 설은 적절한 형태의 프로그램을 가진 컴퓨터는 말 그대로 다른 인지 상태를 이해하고 가질 수 있는 정신이라는 철학적 입장을 표현하기 위해 ‘강한 인공지능’이라는 용어를 최초로 사용하였습니다(설 1980). 그는 이런 유형의 연구를 ‘약한 인공지능’과 구분하였습니다. 약한 인공지능은 컴퓨터가 정신을 가지고 있다고 주장하지 않으며, 단지 정신의 과정에 관한 특정한 설명을 검토하는 데에 유용하다는 입장을 취합니다. 강한 인공지능과는 대조적으로, 설에 따르면 이 입장은 컴퓨터가 말 그대로 (정신을) 설명한다고 주장하지 않습니다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 26 Jun 2017 05:25:30 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/06/26/computing-and-moral-responsibility.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/06/26/computing-and-moral-responsibility.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/06/26/computing-and-moral-responsibility.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/06/26/computing-and-moral-responsibility.html</guid>
         
         <category>ethics</category>
         
@@ -2936,8 +2936,8 @@ Wolff, J. and A. de-Shalit, 2007, Disadvantage, Oxford: Oxford University Press.
 &lt;p&gt;&lt;sup&gt;2&lt;/sup&gt; 우선주의(Prioritarianism): (삶 전체 기간에 걸쳐) 웰빙 점수가 낮은 사람일수록, 웰빙의 증가를 보장해야 한다는 입장 또는 그 점진적 증가에 도덕적 가치를 부여하는 것&lt;/p&gt;
 </description>
         <pubDate>Fri, 23 Jun 2017 14:00:30 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/06/23/capabilities-approach.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/06/23/capabilities-approach.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/06/23/capabilities-approach.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/06/23/capabilities-approach.html</guid>
         
         <category>ethics</category>
         
@@ -3008,8 +3008,8 @@ Wolff, J. and A. de-Shalit, 2007, Disadvantage, Oxford: Oxford University Press.
 &lt;p&gt;&lt;sup&gt;1&lt;/sup&gt; Garant, RR. The Long Climb: Form Barber-Surgeons to Doctors of Dental Surgery. 2013. Hanover Park, IL: Quintessence Publishing.&lt;/p&gt;
 </description>
         <pubDate>Wed, 21 Jun 2017 10:02:00 -0400</pubDate>
-        <link>http://junhewk.github.io/ethics/2017/06/21/overcoming-historical-separation-between-oral-and-general-health-care.html</link>
-        <guid isPermaLink="true">http://junhewk.github.io/ethics/2017/06/21/overcoming-historical-separation-between-oral-and-general-health-care.html</guid>
+        <link>https://junhewk.github.io//ethics/2017/06/21/overcoming-historical-separation-between-oral-and-general-health-care.html</link>
+        <guid isPermaLink="true">https://junhewk.github.io//ethics/2017/06/21/overcoming-historical-separation-between-oral-and-general-health-care.html</guid>
         
         <category>ethics</category>
         
