@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>R에서 해보는 한국 일제강점기 시의 단어 분석</title>
+  <meta name="description" content="시작하기 전에">
+  
+  <meta name="author" content="Junhewk Kim">
+  <meta name="copyright" content="&copy; Junhewk Kim 2017">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="시작하기 전에" />
+  <meta property="og:url" content="http://junhewk.github.io" />
+  <meta property="og:site_name" content="Informational Ethics" />
+  <meta property="og:title" content="R에서 해보는 한국 일제강점기 시의 단어 분석" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://junhewk.github.io/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="R에서 해보는 한국 일제강점기 시의 단어 분석">
+  <meta name="twitter:description" content="시작하기 전에">
+  <meta name="twitter:image" content="http://junhewk.github.io/assets/logo.png">
+  <meta name="twitter:url" content="http://junhewk.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://junhewk.github.io/text/2017/06/18/single-word-analysis-korean-poem.html">
+  <link rel="alternate" type="application/rss+xml" title="Informational Ethics" href="http://junhewk.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Informational Ethics">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        
+          
+          <li class="nav-link"><a href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/posts/">Posts</a>
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">R에서 해보는 한국 일제강점기 시의 단어 분석</h1>
+      <p class="info">by <strong>Junhewk Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">June 18, 2017</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/text">Text</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h3 id="section">시작하기 전에</h3>
+
+<ul>
+  <li>본 포스트는 <a href="http://blog.eighty20.co.za//package%20exploration/2017/06/12/sentiment-blog-post/">Single World Analysis of Early 19th Century Poetry Using tidytext</a>의 내용을 수정, 발전시킨 것입니다. 분석 방법은 기본적으로 모두 원 블로그에서 따온 것임을 밝힙니다.</li>
+  <li><a href="http://freesearch.pe.kr">전희원</a>님의 <a href="https://github.com/haven-jeon/KoNLP">KoNLP</a>는 정말 멋진 패키지이지만, 본문에서는 적용하지 않았습니다. 다음번 포스팅에는 독자분들이 좀 더 쉽게 접근하실 수 있도록 KoNLP를 통한 분석도 싣도록 하겠습니다.</li>
+  <li>여기에서는 <a href="http://www.shineware.co.kr/products/komoran/">코모란 3.0</a>을 적용했습니다. 아쉽게도 R 포팅은 없기 때문에, <a href="https://cran.r-project.org/web/packages/rJava/index.html">rJava</a> interface를 통해 Komoran 3.0 Java Archive를 직접 불러와 태깅했습니다.</li>
+  <li>본문에서 사용한 감정사전은 두 종류입니다. 하나는 <a href="http://saifmohammad.com/WebPages/lexicons.html">NRC Emoticon Lexicon</a>이며, 다른 하나는 <a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">Bing Opinion Lexicon</a>입니다. 전자는 Saif Mohammad에게 이메일을 통해 사용 허가를 받았으며, 후자는 자료가 공개 형태로 올라와 있어 특별히 허가를 받지는 않았습니다.</li>
+</ul>
+
+<h3 id="tidy-text---">Tidy text? 낱개 단어 분석이란?</h3>
+
+<p>최근 자연어 처리(NLP, <em>Natural Language Process</em>)에서 가장 주목받는 기술은 <em>Word Embedding</em>일 것 같습니다. 단어를 벡터 공간에 배치하여 딥러닝에 적합한 자료 형태로 텍스트를 변형시키는 방법으로 주목받은 <em>Word Embedding</em>은 뛰어난 기법임에는 틀림없지만, 아직 개별 단어 또는 글뭉치의 분석에 적용할 방법은 잘 모르겠습니다. 예컨대 글뭉치의 주제 분석에 활용하는 LDA(<em>Latent Dirichlet Analysis</em>)에 <em>Word Embedding</em>을 적용하는 LDA2Vec 등이 제시었지만 성공적이라고 보기는 어려운 것 같습니다.</p>
+
+<p>한편 최근 R 진영에서 텍스트 분석은 <a href="https://cran.r-project.org/web/packages/tidytext/index.html"><code class="highlighter-rouge">tidytext</code></a>가 점차 두각을 나타내고 있는 것 같습니다. <a href="https://juliasilge.com">Julia Silge</a>와 <a href="http://varianceexplained.org">David Robinson</a>이 만든 패키지이자 둘의 공저인 <a href="http://tidytextmining.com">Text Mining with R</a>에 잘 설명되어 있는 <code class="highlighter-rouge">tidytext</code>는 텍스트 자료를 tidy data 형태로 정리하여 분석하는 방법을 제공합니다. <code class="highlighter-rouge">dplyr</code>등으로 R을 현재의 반열에 올려놓은 (개인적 의견입니다만) <a href="hadley%20wickham">Hadley Wickham</a>이 정리한 tidy data의 개념을 보면 다음과 같습니다.</p>
+
+<ul>
+  <li>각 변수를 열에 배치</li>
+  <li>각 관찰값은 행에 배치</li>
+  <li>관찰 단위 별로 테이블 제작</li>
+</ul>
+
+<p>이 원칙을 텍스트 분석에 적용하면, 한 열에 하나의 토큰이 배치되어 있는 테이블을 만드는 것을 의미할 겁니다. 토큰은 텍스트의 의미 단위로, 단어 하나, 형태소 하나, 어절 하나 등 분석 방법에 따라 달라지게 될 겁니다. 보통 하나의 단어를 한 열에 두지만, <code class="highlighter-rouge">n-gram</code>의 경우에는 좀 달라질 것 같고, 텍스트를 통째로 자료로 넣는 경우에는 또 다르겠지요.</p>
+
+<p>예를 볼게요. (tidytextmining.com, Chapter 1에서 가져온 예제입니다.)</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Because I could not stop for Death -"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"He kindly stopped for me -"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"The Carriage held but just Ourselves -"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"and Immortality"</span><span class="p">)</span></code></pre></figure>
+
+<p>디킨슨의 시 일부입니다. 일단 tidy text dataset으로 만들기 위해서는, 자료를 <code class="highlighter-rouge">data frame</code>으로 바꿔야 합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+
+</span><span class="n">text_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data_frame</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">)</span><span class="w">
+
+</span><span class="n">text_df</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 4 × 2
+##    line                                   text
+##   &lt;int&gt;                                  &lt;chr&gt;
+## 1     1   Because I could not stop for Death -
+## 2     2             He kindly stopped for me -
+## 3     3 The Carriage held but just Ourselves -
+## 4     4                        and Immortality
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">tibble</code>은 R base data frame의 수정판입니다. <code class="highlighter-rouge">data.frame</code> 함수가 아닌 <code class="highlighter-rouge">data_frame</code> 함수를 사용하고, <code class="highlighter-rouge">dplyr</code> 패키지의 여러 함수를 적용해 테이블을 변형하기 무척 쉬워집니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">tidytext</span><span class="p">)</span><span class="w">
+
+</span><span class="n">text_df</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">unnest_tokens</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 20 × 2
+##     line        word
+##    &lt;int&gt;       &lt;chr&gt;
+## 1      1     because
+## 2      1           i
+## 3      1       could
+## 4      1         not
+## 5      1        stop
+## 6      1         for
+## 7      1       death
+## 8      2          he
+## 9      2      kindly
+## 10     2     stopped
+## 11     2         for
+## 12     2          me
+## 13     3         the
+## 14     3    carriage
+## 15     3        held
+## 16     3         but
+## 17     3        just
+## 18     3   ourselves
+## 19     4         and
+## 20     4 immortality
+</code></pre>
+</div>
+
+<p>이렇게 토큰(여기에서는 단어) 별로 텍스트를 나열한 것을 tidy text format이라고 합니다. 물론 <code class="highlighter-rouge">tm</code> 패키지로 document-term matrix를 만들거나 할 때에는 자료형을 다시 변형시켜야 겠지만, 일단 여기에서는 감정 분석을 진행할 것이기 때문에 여기까지만 말씀드려도 충분할 것 같습니다. 다음 번에 <code class="highlighter-rouge">LDA</code>를 다룰 때 다시 설명드릴게요.</p>
+
+<p>제가 이 분석을 진행하면서 참고한 블로그는 이렇게 tidy text format으로 정리한 낱개 단어를 바탕으로 분석을 진행하는 것에 낱개 단어 분석(single word analysis)이라는 이름을 붙였던데, 이 표현이 통용되는지는 잘 모르겠습니다. Tidy text analysis로 충분한 것 같은데 굳이 다른 이름을 붙일 이유가 있을까요.</p>
+
+<hr />
+
+<h3 id="section-1">진행 순서: 한국 근대시 감정분석</h3>
+
+<ul>
+  <li><a href="http://biblio.endy.pe.kr/">http://biblio.endy.pe.kr/</a> scraping module 제작</li>
+  <li>NRC emotion lexicon, Bing lexicon 번역</li>
+  <li>Komoran 3.0 interface by rJava</li>
+  <li>분석 및 display</li>
+</ul>
+
+<hr />
+
+<h3 id="scraping-module">한국 근대시 도서관 scraping module</h3>
+
+<p><a href="http://biblio.endy.pe.kr/">한국 근대시 도서관</a>에는 저작권이 만료된 시집 김억 <시선>, 윤동주 <하늘과 바람과="" 별과="" 시="">, 한용운 <님의 침묵="">과 시 최남선 <해에게서 소년에게="">가 게제되어 있습니다. 저작권 만료로 인터넷에 공개되어 있는 시선이므로, 분석하는 데에 문제는 없습니다. 단, 총 31편으로 자료가 부족하다는 단점이 있으며, 다음번에는 [위키문헌](https://ko.wikisource.org/wiki/위키문헌:대문) scraping module을 통해 더 많은 텍스트를 분석해 보도록 하겠습니다.</해에게서></님의></하늘과></시선></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">tidytext</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">rvest</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">extrafont</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">rJava</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">translate</span><span class="p">)</span></code></pre></figure>
+
+<p>사용한 패키지입니다. <code class="highlighter-rouge">rJava</code>는 Komoran 3.0을 불러오기 위해, <code class="highlighter-rouge">translate</code>는 Google Translate API를 연결해 사전을 번역하는데 사용합니다. <code class="highlighter-rouge">extrafont</code>는 그래프의 폰트 변경 때문에 불렀습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">base_url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"http://biblio.endy.pe.kr"</span><span class="w">
+
+</span><span class="n">poem_link</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_c</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span><span class="w"> </span><span class="s2">"/home"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">read_html</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">html_nodes</span><span class="p">(</span><span class="n">xpath</span><span class="o">=</span><span class="s2">"//li//div//a[@class='sites-navigation-link']"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">html_attr</span><span class="p">(</span><span class="s2">"href"</span><span class="p">)</span></code></pre></figure>
+
+<p>먼저 첫 페이지에서 각 시의 링크를 뽑아옵니다. <code class="highlighter-rouge">poem_link</code>에 각 시로 연결되는 링크를 받아 (<code class="highlighter-rouge">html_attr("href")</code>) 저장합니다. 해당 사이트는 아쉽게도 페이지가 완전히 규칙적이지는 않습니다. 처음부터 조금 문제에 부딪힙니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">gim_eog_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_link</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">14</span><span class="p">]</span><span class="w">
+</span><span class="n">yundongju_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_link</span><span class="p">[</span><span class="m">16</span><span class="o">:</span><span class="m">21</span><span class="p">]</span><span class="w">
+</span><span class="n">choenamseon_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_link</span><span class="p">[</span><span class="m">22</span><span class="p">]</span><span class="w">
+</span><span class="n">hanyongun_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_link</span><span class="p">[</span><span class="m">24</span><span class="o">:</span><span class="m">35</span><span class="p">]</span></code></pre></figure>
+
+<p>시를 규칙으로 뽑아올 수가 없어서, 수작업으로 일단 분류했습니다. 중간 중간 빠진 열은 시집의 소개가 들어있는 페이지의 링크이기 때문에 제외했습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">get_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">poem_url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="n">base_url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"http://biblio.endy.pe.kr"</span><span class="w">
+
+  </span><span class="c1"># 주소와 앞에서 추출한 시의 링크를 결합, 시 본문에 접근합니다.
+</span><span class="w">  </span><span class="c1"># 원문 텍스트를 추출합니다.
+</span><span class="w">  </span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_c</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span><span class="w"> </span><span class="n">poem_url</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">read_html</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_nodes</span><span class="p">(</span><span class="n">xpath</span><span class="o">=</span><span class="s2">"//table[@class='sites-layout-hbox']//tbody//tr//td"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="s2">"["</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">.</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_children</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+
+  </span><span class="c1"># 첫 줄이 제목이고 조금 특이한 whitespace인 \u3000으로 구분되어 있어, regular expression으로 제목을 추출한 다음 나머지를 시 본문으로 삼습니다.
+</span><span class="w">  </span><span class="n">title</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">regmatches</span><span class="p">(</span><span class="n">poem_body</span><span class="p">,</span><span class="w"> </span><span class="n">regexpr</span><span class="p">(</span><span class="s1">'[ ㄱ-ㅎ가-힣]*[\u3000]'</span><span class="p">,</span><span class="w"> </span><span class="n">poem_body</span><span class="p">))</span><span class="w">
+  </span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sub</span><span class="p">(</span><span class="s1">'[ ㄱ-ㅎ가-힣]*[\u3000]'</span><span class="p">,</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="n">poem_body</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># 제목에서 두 칸 이상의 빈 공간, 특수문자, 한자 등을 제거합니다.
+</span><span class="w">  </span><span class="n">title</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\r"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\n"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u3000]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[  ]{2}"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[[:punct:]]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u4E00-\u9FD5○]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_trim</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">"both"</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># 마찬가지로 본문에서 두 칸 이상의 빈 공간, 특수문자, 한자 등을 제거합니다.
+</span><span class="w">  </span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">poem_body</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\r"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\n"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u3000]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[  ]{2}"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[[:punct:]]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u4E00-\u9FD5○]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w">
+
+  </span><span class="nf">return</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="o">=</span><span class="n">poem_body</span><span class="p">))</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>시를 받아오는 기본 함수입니다. Argument로 위에서 만든 시 링크를 받아, 각 시의 본문을 scraping합니다. R은 여러 값을 동시에 반환할 수 없기 때문에, 리스트 형태로 자료를 묶어 반환합니다. 통일된 양식이 아니라서 scraping이 매우 어려월습니다. 또, 김억 시인의 발문 ‘시형의 음률과 호흡’, 한용운 시인의 ‘나의 길’은 제목이 자동으로 수집되지 않습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">gim_eog_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">poem_url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">base_url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"http://biblio.endy.pe.kr"</span><span class="w">
+
+  </span><span class="c1"># 다시 본문을 받아옵니다.
+</span><span class="w">  </span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_c</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span><span class="w"> </span><span class="n">poem_url</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">read_html</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_nodes</span><span class="p">(</span><span class="n">xpath</span><span class="o">=</span><span class="s2">"//table[@class='sites-layout-hbox']//tbody//tr//td"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="s2">"["</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_children</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+
+  </span><span class="c1"># regular expression으로 네자리 숫자를 추출합니다.
+</span><span class="w">  </span><span class="n">date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">regmatches</span><span class="p">(</span><span class="n">poem_body</span><span class="p">,</span><span class="w"> </span><span class="n">regexpr</span><span class="p">(</span><span class="s1">'[0-9]{4}'</span><span class="p">,</span><span class="w"> </span><span class="n">poem_body</span><span class="p">))</span><span class="w">
+
+  </span><span class="nf">return</span><span class="p">(</span><span class="n">date</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>김억 시인의 경우에는 본문에 쓰인 날짜가 적혀 있어, 추출하기 위한 루틴을 추가했습니다. 물론 기본 scraping 함수에 합쳐도 되지만, 좀 더 단순하게 코드를 짜고 싶었습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">get_yundongju_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">poem_url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="c1"># 윤동주 시인의 시를 scraping하기 위한 module
+</span><span class="w">
+  </span><span class="n">base_url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"http://biblio.endy.pe.kr"</span><span class="w">
+
+  </span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_c</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span><span class="w"> </span><span class="n">poem_url</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">read_html</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_nodes</span><span class="p">(</span><span class="n">xpath</span><span class="o">=</span><span class="s2">"//table[@class='sites-layout-hbox']//tbody//tr//td"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="s2">"["</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_children</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+
+  </span><span class="c1"># 제목, 쓰인 날짜를 추출합니다.
+</span><span class="w">  </span><span class="n">title</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">regmatches</span><span class="p">(</span><span class="n">poem_body</span><span class="p">,</span><span class="w"> </span><span class="n">regexpr</span><span class="p">(</span><span class="s1">'[ ㄱ-ㅎ가-힣\u4E00-\u9FD5]+[\n]{2}'</span><span class="p">,</span><span class="w"> </span><span class="n">poem_body</span><span class="p">))</span><span class="w">
+  </span><span class="n">poem_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">regmatches</span><span class="p">(</span><span class="n">poem_body</span><span class="p">,</span><span class="w"> </span><span class="n">regexpr</span><span class="p">(</span><span class="s1">'[\u4E00-\u9FD5○]{4}'</span><span class="p">,</span><span class="w"> </span><span class="n">poem_body</span><span class="p">))</span><span class="w">
+  </span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sub</span><span class="p">(</span><span class="s1">'[ ㄱ-ㅎ가-힣\u4E00-\u9FD5]*[\n]{2}'</span><span class="p">,</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="n">poem_body</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># 제목을 정리합니다.
+</span><span class="w">  </span><span class="n">title</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\r"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\n"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u3000]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[  ]{2}"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[[:punct:]]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u4E00-\u9FD5○]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_trim</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">"both"</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># 본문을 정리합니다.
+</span><span class="w">  </span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">poem_body</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\r"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"\n"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u3000]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[  ]{2}"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[[:punct:]]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[\u4E00-\u9FD5○]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># 쓰인 날짜가 한문으로 되어 있어, 한글로 바꿉니다.
+</span><span class="w">  </span><span class="c1"># 더 쉬운 방법이 있으면 알려주시면 감사하겠습니다.
+</span><span class="w">  </span><span class="n">poem_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">poem_date</span><span class="p">,</span><span class="w"> </span><span class="s2">"一"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"三"</span><span class="p">,</span><span class="w"> </span><span class="s2">"3"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"四"</span><span class="p">,</span><span class="w"> </span><span class="s2">"4"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"九"</span><span class="p">,</span><span class="w"> </span><span class="s2">"9"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"○"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0"</span><span class="p">)</span><span class="w">
+
+  </span><span class="nf">return</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="o">=</span><span class="n">poem_body</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="o">=</span><span class="n">poem_date</span><span class="p">))</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>윤동주 시인의 시는 배치가 달라, 별도로 함수를 만들었습니다.</p>
+
+<hr />
+
+<h3 id="emotion-lexicon-komoran-30">Emotion lexicon과 Komoran 3.0</h3>
+
+<p>서두에 말씀드린대로, NRC emotion lexicon과 Bing opinion lexicon을 사용하여 감정 분석에 들어갑니다. 제작년에는 <a href="http://openhangul.com">오픈한글</a>에서 한글 감정 어휘를 확인할 수 있었는데, 지금은 서비스가 중단되어 사용할 수 없습니다. 추후에 기회가 있으면 다른 방식으로 감정어 사전을 만들어볼 수 있었으면 좋겠습니다.</p>
+
+<p>NRC emotion lexicon은 각 단어가 분노(anger), 기대(anticipation), 혐오(disgust), 공포(fear), 즐거움(joy), 슬픔(sadness), 놀람(surprise), 신뢰(trust) 점수를 가지고 있어, 이를 합산하여 텍스트의 감정 점수를 계산합니다. 감정 점수 할당은 인터넷에서 투표를 하는 방식으로 결정되어 있습니다. NRC lexicon에는 다른 자료도 있는데, 이번에는 일단 이것만 사용합니다.</p>
+
+<p>Bing emotion lexicon에는 각 단어가 긍정(positive), 부정(negative)로 표시되어 있습니다. 상품 리뷰 등의 텍스트와 점수를 연동하여, 점수에서 다시 각 단어의 긍정, 부정을 계산하는 방식으로 만들어져 있습니다.</p>
+
+<p>당연히(?) 둘 다 영어이기 때문에, 이를 적용하여 감정 분석을 하려면 한글로 옮겨야 합니다. NRC emotion lexicon은 이미 20개 언어로 번역이 되어 있으며, 저자에 따르면 문화적 차이가 있더라도 정서적 기준(affective norms)은 여러 언어에서 상당히 안정적인 것으로 나타난다고 합니다. 여기에서는 원 제작자가 다른 언어에 적용한 것과 마찬가지로 Google Translate API를 통해 단어를 번역하였습니다. 총 20689단어(NRC 13901, Bing 6788)를 번역하였고, 전문적으로 사용하기에는 아쉬운 점이 많이 있어 추후 논문 등에 적용하기 위해서는 사전 전체를 개정해야 할 것 같습니다.</p>
+
+<p>번역본을 그대로 올리는 것은 저작권 상 어려울 것 같고, 간단히 Google Translate API 사용법을 올립니다. 먼저 <a href="https://cloud.google.com">Google Cloud</a>에 가입하여 Billing 신청 후, API Manager - Library에서 Translation API를 찾습니다. 사용 신청 후 Credential key를 받으면 됩니다. 다음, <code class="highlighter-rouge">translate</code> 라이브러리를 통해 진행합니다. 먼저 <code class="highlighter-rouge">translate_key</code>를 저장 후, <code class="highlighter-rouge">translate</code> 함수에 텍스트, 입력 언어, 출력 언어를 넣어주면 끝입니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># 받은 credential key를 등록합니다.
+</span><span class="n">set.key</span><span class="p">(</span><span class="n">translate_key</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># 번역 함수는 매우 쉽습니다.
+</span><span class="n">translate</span><span class="p">(</span><span class="s2">"안녕하세요? R을 통한 텍스트 마이닝입니다."</span><span class="p">,</span><span class="w"> </span><span class="s2">"ko"</span><span class="p">,</span><span class="w"> </span><span class="s2">"en"</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## [[1]]
+## [1] "Good morning? Text mining through R"
+</code></pre>
+</div>
+
+<p>다음은 <a href="https://github.com/shin285/KOMORAN">코모란 3.0</a> 형태소 분석기를 <code class="highlighter-rouge">rJava</code>로 불러들입니다. 제가 자바 언어는 영 몰라서 자신있게 함수를 말씀드리기도 어렵고 하여 이렇게 진행했다는 점만 말씀드립니다. 개인적으로는 KoNLP보다는 조금 더 안정적이라는 생각이 있습니다만, KoNLP의 한나눔 형태소 분석기가 더 좋은 결과를 보이는 텍스트도 있기 때문에, 서두에 말씀드린 것처럼 좋은 예를 찾으면 다음 번에는 KoNLP로 진행한 예제를 올리겠습니다.</p>
+
+<p>이때, 시 원문을 <code class="highlighter-rouge">Komoran</code>에 넣어서 명사만을 추출합니다. 전체 텍스트를 사용하지 않는 이유는 어미, 조사, 부사 등이 결합되어 있으면 감정 사전과 단어를 매칭할 수 없기 때문입니다. 동사, 형용사는 같이 분석하고 싶은데, 방법을 좀 더 고민해봐야 할 것 같습니다.</p>
+
+<hr />
+
+<h3 id="section-2">시 원문 분석</h3>
+
+<p>일단 시를 불러와야 겠죠? 먼저 Bing과 NRC lexicon을 사용하여 점수를 구하는 함수부터 살펴보겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">bing_analyse_poems</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">poem_text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="c1"># 시 원문을 받아, 명사 추출 후 tidytext의 함수를 통해 정리합니다.
+</span><span class="w">
+  </span><span class="n">text_tokenized</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_noun_komoran</span><span class="p">(</span><span class="n">poem_text</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">data_frame</span><span class="p">(</span><span class="n">poem</span><span class="o">=</span><span class="n">.</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">unnest_tokens</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="n">poem</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># sentiment_lex_bing은 Bing lexicon에 한글 단어를 추가한 것입니다.
+</span><span class="w">  </span><span class="n">bing</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sentiment_lex_bing</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">rename</span><span class="p">(</span><span class="n">en</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">rename</span><span class="p">(</span><span class="n">word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ko</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># 시 테이블에서 겹치는 단어를 bing lexicon에 찾아 붙여줍니다.
+</span><span class="w">  </span><span class="n">poem_sentiment</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">text_tokenized</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">inner_join</span><span class="p">(</span><span class="n">bing</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># positive는 1점, 아니면 (negative) -1점을 부여합니다.
+</span><span class="w">  </span><span class="n">poem_sentiment</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_sentiment</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">mutate</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">ifelse</span><span class="p">(</span><span class="n">poem_sentiment</span><span class="o">$</span><span class="n">sentiment</span><span class="o">==</span><span class="s2">"positive"</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">-1</span><span class="p">))</span><span class="w">
+
+  </span><span class="c1"># 총합을 길이로 나누어 점수를 계산합니다.
+</span><span class="w">  </span><span class="n">final_score</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">poem_sentiment</span><span class="o">$</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">text_tokenized</span><span class="o">$</span><span class="n">word</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">10</span><span class="w">
+
+  </span><span class="nf">return</span><span class="p">(</span><span class="n">final_score</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">nrc_analyse_poems</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">nrc_poem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="c1"># NRC lexicon의 감정 종류입니다.
+</span><span class="w">  </span><span class="n">sentiments_vec</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"anger"</span><span class="p">,</span><span class="w"> </span><span class="s2">"anticipation"</span><span class="p">,</span><span class="w"> </span><span class="s2">"disgust"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fear"</span><span class="p">,</span><span class="w">
+                      </span><span class="s2">"joy"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sadness"</span><span class="p">,</span><span class="w"> </span><span class="s2">"surprise"</span><span class="p">,</span><span class="w"> </span><span class="s2">"trust"</span><span class="p">)</span><span class="w">
+
+  </span><span class="n">sent_list</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span><span class="w">
+
+  </span><span class="c1"># 마찬가지로 명사 추출, tidy text 형태로 바꿉니다.
+</span><span class="w">  </span><span class="n">text_tokenized</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_noun_komoran</span><span class="p">(</span><span class="n">nrc_poem</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">data_frame</span><span class="p">(</span><span class="n">poem</span><span class="o">=</span><span class="n">.</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">unnest_tokens</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="n">poem</span><span class="p">)</span><span class="w">
+
+  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">sent</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">sentiments_vec</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+    </span><span class="c1"># 각 감정 별로 테이블을 만듭니다.
+</span><span class="w">    </span><span class="n">nrc_sentiment</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sentiment_lex_nrc</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+      </span><span class="n">filter</span><span class="p">(</span><span class="n">sentiment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sent</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+      </span><span class="n">rename</span><span class="p">(</span><span class="n">en</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+      </span><span class="n">rename</span><span class="p">(</span><span class="n">word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ko</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># 시 텍스트에서 감정 단어가 있는지 확인, 단어의 수를 셉니다.
+</span><span class="w">    </span><span class="n">sentiment_in_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">text_tokenized</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+      </span><span class="n">semi_join</span><span class="p">(</span><span class="n">nrc_sentiment</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+      </span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="n">sort</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1"># 각 감정 값을 반환합니다.
+</span><span class="w">    </span><span class="n">sent_list</span><span class="p">[</span><span class="n">sent</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">sentiment_in_poem</span><span class="o">$</span><span class="n">n</span><span class="p">)</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+  </span><span class="nf">return</span><span class="p">(</span><span class="n">sent_list</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>위의 함수를 통해 감정 점수를 계산합니다. 이제, 시를 직접 scraping해서 위의 함수를 적용해 보겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">poem_title</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span><span class="w">
+</span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span><span class="w">
+</span><span class="n">poem_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span><span class="w">
+</span><span class="n">poet</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span><span class="w">
+</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w">
+
+</span><span class="c1"># 김억 시인
+</span><span class="k">for</span><span class="p">(</span><span class="n">poem_url</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">gim_eog_poem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">poem_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_poem</span><span class="p">(</span><span class="n">poem_url</span><span class="p">)</span><span class="w">
+  </span><span class="n">poem_gim_eog_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">gim_eog_date</span><span class="p">(</span><span class="n">poem_url</span><span class="p">)</span><span class="w">
+  </span><span class="n">poem_title</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">title</span><span class="w">
+  </span><span class="n">poem_body</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">body</span><span class="w">
+  </span><span class="n">poet</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"김억"</span><span class="w">
+  </span><span class="n">poem_date</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_gim_eog_date</span><span class="w">
+  </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c1"># 제목이 자동으로 수집되지 않으므로, 직접 추가합니다.
+</span><span class="n">poem_title</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"시형의 음률과 호흡"</span><span class="w">
+</span><span class="c1"># 작품 "비"에는 지은날이 표기되어 있지 않아, 시집 출판일로 대신합니다.
+</span><span class="n">poem_date</span><span class="p">[[</span><span class="m">9</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"1929"</span><span class="w">
+
+</span><span class="c1"># 윤동주 시인
+</span><span class="k">for</span><span class="p">(</span><span class="n">poem_url</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">yundongju_poem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">poem_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_yundongju_poem</span><span class="p">(</span><span class="n">poem_url</span><span class="p">)</span><span class="w">
+  </span><span class="n">poem_title</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">title</span><span class="w">
+  </span><span class="n">poem_body</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">body</span><span class="w">
+  </span><span class="n">poet</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"윤동주"</span><span class="w">
+  </span><span class="n">poem_date</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">date</span><span class="w">
+  </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c1"># 최남선 시인
+</span><span class="n">poem_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_poem</span><span class="p">(</span><span class="n">choenamseon_poem</span><span class="p">[</span><span class="m">1</span><span class="p">])</span><span class="w">
+</span><span class="n">poem_title</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">title</span><span class="w">
+</span><span class="n">poem_body</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">body</span><span class="w">
+</span><span class="n">poet</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"최남선"</span><span class="w">
+</span><span class="n">poem_date</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"1908"</span><span class="w">
+</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
+
+</span><span class="c1"># 한용운 시인
+</span><span class="k">for</span><span class="p">(</span><span class="n">poem_url</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">hanyongun_poem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">poem_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_poem</span><span class="p">(</span><span class="n">poem_url</span><span class="p">)</span><span class="w">
+  </span><span class="n">poem_title</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">title</span><span class="w">
+  </span><span class="n">poem_body</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_data</span><span class="o">$</span><span class="n">body</span><span class="w">
+  </span><span class="n">poet</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"한용운"</span><span class="w">
+  </span><span class="c1"># 개별 시가 쓰인 일자가 나와있지 않아, 시집의 출간일로 대신합니다.
+</span><span class="w">  </span><span class="n">poem_date</span><span class="p">[[</span><span class="n">count</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"1926"</span><span class="w">
+  </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c1"># 다시, 자동으로 수집되지 않는 제목을 수동으로 추가합니다.
+</span><span class="n">poem_title</span><span class="p">[[</span><span class="m">29</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"나의 길"</span><span class="w">
+</span><span class="c1"># 28번 자료, "고적한 밤"은 중복이므로 삭제합니다.
+</span><span class="n">poem_body</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_body</span><span class="p">[</span><span class="m">-28</span><span class="p">]</span><span class="w">
+</span><span class="n">poem_title</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_title</span><span class="p">[</span><span class="m">-28</span><span class="p">]</span><span class="w">
+</span><span class="n">poem_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_date</span><span class="p">[</span><span class="m">-28</span><span class="p">]</span><span class="w">
+</span><span class="n">poet</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poet</span><span class="p">[</span><span class="m">-28</span><span class="p">]</span><span class="w">
+
+</span><span class="c1"># 자료를 합쳐 data frame을 만듭니다. 처음부터 바로 data frame으로 넣어도 괜찮습니다만, 자료가 들쭉날쭉하여 이쪽을 택했습니다.
+</span><span class="n">poem_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data_frame</span><span class="p">(</span><span class="n">poet</span><span class="o">=</span><span class="n">unlist</span><span class="p">(</span><span class="n">poet</span><span class="p">),</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="n">unlist</span><span class="p">(</span><span class="n">poem_title</span><span class="p">),</span><span class="w"> </span><span class="n">poem</span><span class="o">=</span><span class="n">unlist</span><span class="p">(</span><span class="n">poem_body</span><span class="p">),</span><span class="w"> </span><span class="n">date</span><span class="o">=</span><span class="n">unlist</span><span class="p">(</span><span class="n">poem_date</span><span class="p">))</span><span class="w">
+
+</span><span class="n">head</span><span class="p">(</span><span class="n">poem_df</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 10 × 4
+##     poet                 title
+##    &lt;chr&gt;                 &lt;chr&gt;
+## 1   김억    시형의 음률과 호흡
+## 2   김억        나의 작은 새야
+## 3   김억                  낙엽
+## 4   김억 여름 저녁에 읊은 노래
+## 5   김억             달과 함께
+## 6   김억              명사십리
+## 7   김억               밤과 나
+## 8   김억             봄은 간다
+## 9   김억                    비
+## 10  김억                  야반
+## # ... with 2 more variables: poem &lt;chr&gt;, date &lt;chr&gt;
+</code></pre>
+</div>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Bing 감정 점수를 계산합니다.
+</span><span class="n">scores</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sapply</span><span class="p">(</span><span class="n">poem_df</span><span class="o">$</span><span class="n">poem</span><span class="p">,</span><span class="w"> </span><span class="n">bing_analyse_poems</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># NRC 감정 점수를 계산합니다.
+</span><span class="n">nrc_analysis_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span><span class="w">
+
+</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">poem_df</span><span class="o">$</span><span class="n">poem</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="n">nrc_poem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_df</span><span class="o">$</span><span class="n">poem</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="w">
+  </span><span class="n">nrc_poet</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_df</span><span class="o">$</span><span class="n">poet</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="w">
+  </span><span class="n">nrc_title</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_df</span><span class="o">$</span><span class="n">title</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="w">
+  </span><span class="n">nrc_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">poem_df</span><span class="o">$</span><span class="n">date</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="w">
+
+  </span><span class="n">nrc_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">nrc_analyse_poems</span><span class="p">(</span><span class="n">nrc_poem</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">gather</span><span class="p">(</span><span class="n">sentiment</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">anger</span><span class="o">:</span><span class="n">trust</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">mutate</span><span class="p">(</span><span class="n">poet</span><span class="o">=</span><span class="n">nrc_poet</span><span class="p">,</span><span class="w">
+           </span><span class="n">date</span><span class="o">=</span><span class="n">nrc_date</span><span class="p">,</span><span class="w">
+           </span><span class="n">title</span><span class="o">=</span><span class="n">nrc_title</span><span class="p">)</span><span class="w">
+
+  </span><span class="n">nrc_analysis_df</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">nrc_df</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">nrc_analysis_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">do.call</span><span class="p">(</span><span class="n">rbind</span><span class="p">,</span><span class="w"> </span><span class="n">nrc_analysis_df</span><span class="p">)</span><span class="w">
+
+</span><span class="n">head</span><span class="p">(</span><span class="n">nrc_analysis_df</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##       sentiment value poet date              title
+## 1         anger    25 김억 1918 시형의 음률과 호흡
+## 2  anticipation     6 김억 1918 시형의 음률과 호흡
+## 3       disgust    15 김억 1918 시형의 음률과 호흡
+## 4          fear    16 김억 1918 시형의 음률과 호흡
+## 5           joy    19 김억 1918 시형의 음률과 호흡
+## 6       sadness    14 김억 1918 시형의 음률과 호흡
+## 7      surprise     2 김억 1918 시형의 음률과 호흡
+## 8         trust    60 김억 1918 시형의 음률과 호흡
+## 9         anger     2 김억 1914     나의 작은 새야
+## 10 anticipation     6 김억 1914     나의 작은 새야
+</code></pre>
+</div>
+
+<p>최종적으로 시, 제목, 시인, 쓰인 날짜가 담겨 있는 <code class="highlighter-rouge">poem_df</code>, Bing 점수가 담겨 있는 <code class="highlighter-rouge">scores</code>, NRC 감정 점수와 시인, 제목, 날짜를 담은 <code class="highlighter-rouge">nrc_analysis_df</code>를 만들었습니다.</p>
+
+<hr />
+
+<h3 id="display">Display</h3>
+
+<p>먼저 시가 쓰인 일자별로 보겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">poet_table</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">poem_df</span><span class="o">$</span><span class="n">poet</span><span class="p">,</span><span class="w"> </span><span class="n">poem_df</span><span class="o">$</span><span class="n">date</span><span class="p">))</span><span class="w">
+</span><span class="n">colnames</span><span class="p">(</span><span class="n">poet_table</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"poet"</span><span class="p">,</span><span class="w"> </span><span class="s2">"date"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Freq"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">poet_table</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">Freq</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="o">=</span><span class="n">factor</span><span class="p">(</span><span class="n">poet</span><span class="p">,</span><span class="w"> </span><span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s2">"김억"</span><span class="p">,</span><span class="w"> </span><span class="s2">"윤동주"</span><span class="p">,</span><span class="w"> </span><span class="s2">"최남선"</span><span class="p">,</span><span class="w"> </span><span class="s2">"한용운"</span><span class="p">))))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s1">'identity'</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="o">=</span><span class="s1">'stack'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_fill_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">RColorBrewer</span><span class="o">::</span><span class="n">brewer.pal</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="s2">"Spectral"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">"빈도"</span><span class="p">,</span><span class="w">
+       </span><span class="n">title</span><span class="o">=</span><span class="s2">"쓰인 시의 연도별 빈도"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">guide_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"시인"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="m">45</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="o">=</span><span class="m">1</span><span class="p">),</span><span class="w">
+        </span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"NanumGothic"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="/assets/figure/2017-06-18-single-word-date-freq-1.png" data-lightbox="쓰인 시의 연도별 빈도" data-title="쓰인 시의 연도별 빈도">
+  <img src="/assets/figure/2017-06-18-single-word-date-freq-1.png" />
+</a></p>
+
+<p>시가 많지 않아서 한해에 하나 정도밖에 없으니, 10년마다 묶도록 하겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">poet_table</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mutate</span><span class="p">(</span><span class="n">poet_table</span><span class="p">,</span><span class="w"> </span><span class="n">decade</span><span class="o">=</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">date</span><span class="p">))</span><span class="w"> </span><span class="o">%/%</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">
+
+</span><span class="n">head</span><span class="p">(</span><span class="n">poet_table</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##      poet date Freq decade
+## 1    김억 1908    0   1900
+## 2  윤동주 1908    0   1900
+## 3  최남선 1908    1   1900
+## 4  한용운 1908    0   1900
+## 5    김억 1914    1   1910
+## 6  윤동주 1914    0   1910
+## 7  최남선 1914    0   1910
+## 8  한용운 1914    0   1910
+## 9    김억 1915    2   1910
+## 10 윤동주 1915    0   1910
+</code></pre>
+</div>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">poet_table</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">decade</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">Freq</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="o">=</span><span class="n">factor</span><span class="p">(</span><span class="n">poet</span><span class="p">,</span><span class="w"> </span><span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s2">"김억"</span><span class="p">,</span><span class="w"> </span><span class="s2">"윤동주"</span><span class="p">,</span><span class="w"> </span><span class="s2">"최남선"</span><span class="p">,</span><span class="w"> </span><span class="s2">"한용운"</span><span class="p">))))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s1">'identity'</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="o">=</span><span class="s1">'stack'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_fill_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">RColorBrewer</span><span class="o">::</span><span class="n">brewer.pal</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="s2">"Spectral"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"연도"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="s2">"빈도"</span><span class="p">,</span><span class="w">
+       </span><span class="n">title</span><span class="o">=</span><span class="s2">"쓰인 시의 10년당 빈도"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">guide_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"시인"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="m">45</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="o">=</span><span class="m">1</span><span class="p">),</span><span class="w">
+        </span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"NanumGothic"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="/assets/figure/2017-06-18-single-word-decade-freq-1.png" data-lightbox="쓰인 시의 10년당 빈도" data-title="쓰인 시의 10년당 빈도">
+  <img src="/assets/figure/2017-06-18-single-word-decade-freq-1.png" />
+</a></p>
+
+<p>1920년대에 시가 편중되어 있어서 너무 아쉬웠습니다. 다음번엔 좀 더 많은 자료를 모아보겠습니다.</p>
+
+<hr />
+
+<p>다음은 Bing 감정 점수입니다. 마찬가지로 10년 단위로 보겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">complete_data_frame_bing</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data_frame</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">poem_df</span><span class="o">$</span><span class="n">date</span><span class="p">)),</span><span class="w"> </span><span class="n">score</span><span class="o">=</span><span class="n">scores</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">decade</span><span class="o">=</span><span class="p">((</span><span class="n">date</span><span class="w"> </span><span class="o">%/%</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">10</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">decade</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarize</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">))</span><span class="w">
+
+</span><span class="n">complete_data_frame_bing</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 5 × 2
+##   decade      score
+##    &lt;dbl&gt;      &lt;dbl&gt;
+## 1   1900 -0.5128205
+## 2   1910  0.1064437
+## 3   1920 -0.2841417
+## 4   1930 -0.7802964
+## 5   1940 -0.2572544
+</code></pre>
+</div>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">complete_data_frame_bing</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">decade</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="o">=</span><span class="n">score</span><span class="p">),</span><span class="w">
+           </span><span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ylim</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">"평균 분율 점수"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="s2">"년도"</span><span class="p">,</span><span class="w">
+       </span><span class="n">title</span><span class="o">=</span><span class="s2">"Bing 감정 점수 분율의 막대그래프"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">guide_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Bing 점수"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"NanumGothic"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="/assets/figure/2017-06-18-single-word-bing-box-1.png" data-lightbox="Bing 감정 점수 분율의 막대그래프" data-title="Bing 감정 점수 분율의 막대그래프">
+  <img src="/assets/figure/2017-06-18-single-word-bing-box-1.png" />
+</a></p>
+
+<p>1900년대는 최남선 시인의 시 하나뿐이라서 좀 말하긴 어렵지만, 1930년대가 가장 어둡고 그 다음이 1900년대가 낮습니다. 오히려 1910년대는 좀 높게 나타나네요. 1930년대, 독립의 희망이 사라지던 시기에 가장 점수가 낮은 것은 그럴듯해 보입니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">complete_data_frame_bing</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_line</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">decade</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">score</span><span class="p">),</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">decade</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">score</span><span class="p">),</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">1.3</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ylim</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">"평균 분율 점수"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="s2">"년도"</span><span class="p">,</span><span class="w">
+       </span><span class="n">title</span><span class="o">=</span><span class="s2">"Bing 감정 점수 분율의 선형그래프"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">guide_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Bing 점수"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"NanumGothic"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="/assets/figure/2017-06-18-single-word-bing-line-1.png" data-lightbox="Bing 감정 점수 분율의 선형그래프" data-title="Bing 감정 점수 분율의 선형그래프">
+  <img src="/assets/figure/2017-06-18-single-word-bing-line-1.png" />
+</a></p>
+
+<p>선형 그래프로 표현한 결과입니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">bing_score_by_poet</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data_frame</span><span class="p">(</span><span class="n">poet</span><span class="o">=</span><span class="n">unlist</span><span class="p">(</span><span class="n">poem_df</span><span class="o">$</span><span class="n">poet</span><span class="p">),</span><span class="w"> </span><span class="n">score</span><span class="o">=</span><span class="n">scores</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">poet</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarize</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">))</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">bing_score_by_poet</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">reorder</span><span class="p">(</span><span class="n">poet</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">score</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="o">=</span><span class="n">poet</span><span class="p">),</span><span class="w"> </span><span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_fill_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">RColorBrewer</span><span class="o">::</span><span class="n">brewer.pal</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="s2">"Set1"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"가장 부정적인 시를 발표한 시인은?"</span><span class="p">,</span><span class="w">
+       </span><span class="n">x</span><span class="o">=</span><span class="s2">"점수"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="s2">"시인"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">guide_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"시인"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"NanumGothic"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="/assets/figure/2017-06-18-single-word-bing-poet-1.png" data-lightbox="가장 부정적인 시를 발표한 시인은?" data-title="가장 부정적인 시를 발표한 시인은?">
+  <img src="/assets/figure/2017-06-18-single-word-bing-poet-1.png" />
+</a></p>
+
+<p>시인 별로 보면, 최남선 시인이 가장 부정적인 시어를 사용하고 있는 것을 볼 수 있습니다. “해에게서 소년에게”를 부정적인 시라고 보기는 어렵지만, 바다가 세상의 부정적인 것들에게 도전하고 있으며, 긍정의 표상인 바다와 파도는 의태어(“철썩”, “쏴아”)로만 제시되고 있으니 수긍할만 한 것 같습니다. 그래서 1900년대의 감정 점수가 낮군요.</p>
+
+<hr />
+
+<p>다음은 NRC 감정 분석 결과입니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">nrc_perdate</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">nrc_analysis_df</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">decade</span><span class="o">=</span><span class="p">((</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">date</span><span class="p">)</span><span class="w"> </span><span class="o">%/%</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">10</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">decade</span><span class="p">,</span><span class="w"> </span><span class="n">sentiment</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarise</span><span class="p">(</span><span class="n">decadeSum</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">value</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">decadeFreqPerc</span><span class="o">=</span><span class="n">decadeSum</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">decadeSum</span><span class="p">))</span><span class="w">
+
+</span><span class="n">head</span><span class="p">(</span><span class="n">nrc_perdate</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## Source: local data frame [10 x 4]
+## Groups: decade [2]
+##
+##    decade    sentiment decadeSum decadeFreqPerc
+##     &lt;dbl&gt;        &lt;chr&gt;     &lt;int&gt;          &lt;dbl&gt;
+## 1    1900        anger         3     0.13636364
+## 2    1900 anticipation         3     0.13636364
+## 3    1900      disgust         3     0.13636364
+## 4    1900         fear         3     0.13636364
+## 5    1900          joy         1     0.04545455
+## 6    1900      sadness         3     0.13636364
+## 7    1900     surprise         1     0.04545455
+## 8    1900        trust         5     0.22727273
+## 9    1910        anger        43     0.12500000
+## 10   1910 anticipation        30     0.08720930
+</code></pre>
+</div>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nrc_perdate</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sentiment</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">decadeFreqPerc</span><span class="p">,</span><span class="w">
+                             </span><span class="n">fill</span><span class="o">=</span><span class="n">sentiment</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_fill_brewer</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s2">"Spectral"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="n">decade</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="m">45</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">8</span><span class="p">),</span><span class="w">
+        </span><span class="n">axis.title.y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="n">margin</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)),</span><span class="w">
+        </span><span class="n">plot.title</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"감정"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="s2">"빈도 분율"</span><span class="p">,</span><span class="w">
+       </span><span class="n">title</span><span class="o">=</span><span class="s2">"연도별 감정 분율 막대 그래프"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"NanumGothic"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="/assets/figure/2017-06-18-single-word-per-date-1.png" data-lightbox="연도별 감정 분율 막대 그래프" data-title="연도별 감정 분율 막대 그래프">
+  <img src="/assets/figure/2017-06-18-single-word-per-date-1.png" />
+</a></p>
+
+<p>10년 단위로 본 NRC 감정 분석 그래프입니다. 1900년에서 1930년으로 가면서 분노는 점점 사라지고, 슬픔이 증가하는 것을 볼 수 있습니다. 1930년대에는 즐거움도 같이 증가하고 있다는 게 특징적입니다. 슬픔이 지나간 뒤의 기쁨에 관한 소망이 같이 표현되고 있기 때문일까요? 1920년대와 1940년대의 양상은 비슷하지만, 분노가 좀 더 높아졌네요. 전체적으로는 1930년대를 제외하면 신뢰가 가장 높게 나타납니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">nrc_perpoet</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">nrc_analysis_df</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">poet</span><span class="p">,</span><span class="w"> </span><span class="n">sentiment</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarise</span><span class="p">(</span><span class="n">poetSum</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">value</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">dateFreqPerc</span><span class="o">=</span><span class="n">poetSum</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">poetSum</span><span class="p">))</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nrc_perpoet</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sentiment</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">dateFreqPerc</span><span class="p">,</span><span class="w">
+                             </span><span class="n">fill</span><span class="o">=</span><span class="n">sentiment</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_fill_brewer</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s2">"Spectral"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="n">poet</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="m">45</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">8</span><span class="p">),</span><span class="w">
+        </span><span class="n">axis.title.y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="n">margin</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)),</span><span class="w">
+        </span><span class="n">plot.title</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">14</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">"빈도 분율"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="s2">"감정"</span><span class="p">,</span><span class="w">
+       </span><span class="n">title</span><span class="o">=</span><span class="s2">"시인별 감정 분율 막대 그래프"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"NanumGothic"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="/assets/figure/2017-06-18-single-word-per-poet-1.png" data-lightbox="시인별 감정 분율 막대 그래프" data-title="시인별 감정 분율 막대 그래프">
+  <img src="/assets/figure/2017-06-18-single-word-per-poet-1.png" />
+</a></p>
+
+<p>시인별 감정 분석입니다. 김억 시인은 전반적으로 비슷한데 신뢰가 가장 높고, 다음 혐오와 슬픔이 나타난다는 것이 특징입니다. 윤동주 시인은 기대와 슬픔이 좀 더 높으 편이고, 최남선 시인은 (역시) 즐거움은 별로 없고 나머지는 비슷합니다. 한용운 시인은 기대와 슬픔이 두드러지네요. 전체적으로 놀람이 잘 나타나지 않는데 한용운 시인에서 제일 높게 나타난 것을 볼 수 있습니다.</p>
+
+<hr />
+
+<h3 id="section-3">정리하며</h3>
+
+<p>분석에서 아쉬운 점이 많습니다.</p>
+
+<ol>
+  <li>감정 사전을 손봐야 합니다. 그대로 사용하기에는 아쉬운 점이 많이 있네요.</li>
+  <li>형태소 분석을 하지 않고 그냥 단어 별로 잘라서 분석하는 것도 가능합니다. 그러면 상당히 다른 형태의 결과가 나오게 됩니다만, 예컨대 윤동주 시인의 감정 점수가 긍정으로 나오기 때문에 받아들이기는 어려웠습니다. 형태소 분석을 하는 것이 더 낫지만(이것은 한국어가 영어처럼 띄어쓰기만으로 단어가 구분되지 않기 때문에 필요한 과정입니다) 단순히 명사만을 사용하는 것을 넘어 다른 형태소 또한 분석에 포함시키는 방법을 고민해야 할 것 같습니다.</li>
+  <li>자료가 너무 적어서, 다음번에는 좀 더 많은 시를 scraping하는 방법을 고민해야 할 것 같습니다. metadata를 같이 얻을 수 있는 사이트가 좋은데, 위키문헌에는 시만 올라와 있기 때문에 두 사이트를 같이 긁어와 결합하는 방법 등을 사용하는 부분을 생각해봐야 겠습니다.</li>
+</ol>
+
+<p>좀 더 나은 결과물로 또 찾아뵙겠습니다.</p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/text">text</a>,&nbsp;<a href="/tag/R">R</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=R%EC%97%90%EC%84%9C+%ED%95%B4%EB%B3%B4%EB%8A%94+%ED%95%9C%EA%B5%AD+%EC%9D%BC%EC%A0%9C%EA%B0%95%EC%A0%90%EA%B8%B0+%EC%8B%9C%EC%9D%98+%EB%8B%A8%EC%96%B4+%EB%B6%84%EC%84%9D&u=http%3A%2F%2Fjunhewk.github.io%2Ftext%2F2017%2F06%2F18%2Fsingle-word-analysis-korean-poem.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'junhewk';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Informational Ethics</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <li class="nav-link"><a href="/about/">About</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/posts/">Posts</a>
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:analyticsophia@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">analyticsophia@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="www.facebook.com/analyticsophia" title="Friend me on Facebook">
+              <i class="fa fa-facebook"></i>
+              <span class="username">analyticsophia</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/junhewk" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">junhewk</span>
+            </a>
+          </li>
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">의료인문학, 의료윤리, 텍스트 분석을 중심으로 한 데이터 분석
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-102102649-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/text/2017/06/18/single-word-analysis-korean-poem.html',
+    'title': 'R에서 해보는 한국 일제강점기 시의 단어 분석'
+  });
+</script>
+
+
+
+  </body>
+
+</html>
