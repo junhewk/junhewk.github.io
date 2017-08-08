@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://junhewk.github.io/text/2017/08/08/cooccurence-matrix-with-Naver-blog.html</loc>
+<lastmod>2017-08-08T07:35:00-04:00</lastmod>
+</url>
+<url>
 <loc>https://junhewk.github.io/ethics/2017/07/22/information-technology-and-moral-values.html</loc>
 <lastmod>2017-07-22T06:24:30-04:00</lastmod>
 </url>
@@ -68,5 +72,13 @@
 </url>
 <url>
 <loc>https://junhewk.github.io/posts/</loc>
+</url>
+<url>
+<loc>https://junhewk.github.io/assets/figure/2017-08-08-D3_1.html</loc>
+<lastmod>2017-08-08T16:36:15-04:00</lastmod>
+</url>
+<url>
+<loc>https://junhewk.github.io/assets/figure/2017-08-08-D3_2.html</loc>
+<lastmod>2017-08-08T15:38:34-04:00</lastmod>
 </url>
 </urlset>
