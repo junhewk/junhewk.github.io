@@ -6,8 +6,8 @@
 </description>
     <link>https://junhewk.github.io/</link>
     <atom:link href="https://junhewk.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Aug 2017 14:42:37 -0400</pubDate>
-    <lastBuildDate>Tue, 15 Aug 2017 14:42:37 -0400</lastBuildDate>
+    <pubDate>Tue, 15 Aug 2017 15:07:18 -0400</pubDate>
+    <lastBuildDate>Tue, 15 Aug 2017 15:07:18 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -393,6 +393,10 @@
         
         <category>R</category>
         
+        <category>LDA</category>
+        
+        <category>complaint</category>
+        
         
         <category>text</category>
         
@@ -622,6 +626,14 @@
         <category>text</category>
         
         <category>R</category>
+        
+        <category>cooccurence</category>
+        
+        <category>network analysis</category>
+        
+        <category>networkD3</category>
+        
+        <category>naver blog</category>
         
         
         <category>text</category>
@@ -1021,7 +1033,7 @@ Floridi, L. and J. W. Sanders, 1999, “Entropy as Evil in Information Ethics,�
       </item>
     
       <item>
-        <title>환자 불편 사항 상담 자료 Word Vector로 분석해보기 (Sementic Analysis)</title>
+        <title>환자 불편 사항 상담 자료 Word Vector로 분석해보기 (Semantic Analysis)</title>
         <description>&lt;p&gt;이번에는 &lt;a href=&quot;http://www.1372.go.kr&quot;&gt;한국 소비자상담센터&lt;/a&gt;의 상담 자료를 Word Vector로 분석해 보려고 합니다. &lt;a href=&quot;/text/2017/06/18/single-word-analysis-korean-poem.html&quot;&gt;지난 번 글&lt;/a&gt;에서 말씀드린 작업 중에서, 감정 사전 번역 후 하나씩 형태소 사전과 매칭하는 작업을 진행 중입니다만 생각보다 손이 많이 가네요. 일단 다른 작업부터 하나 해 보았습니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.1372.go.kr/contents/include.ccn?gSiteCode=2&amp;amp;gMenuCode=4&amp;amp;nMenuCode=13&quot;&gt;소비자상담센터 - 상담조회 - 상담현황조회&lt;/a&gt;에는 서비스 불편 사항에 관한 여러 가지 상담 내용과 응답이 올라와 있습니다. 그 중에는 &lt;a href=&quot;http://www.1372.go.kr/contents/include.ccn?gSiteCode=2&amp;amp;gMenuCode=4&amp;amp;nMenuCode=13&amp;amp;mPart=&quot;&gt;의료서비스&lt;/a&gt;도 있고요. 2010년부터 지금까지 상담한 내용이 올라와 있고, 질의와 응답이 모두 올라와 있어요. &lt;a href=&quot;http://www.1372.go.kr/contents/include.ccn?gSiteCode=2&amp;amp;gMenuCode=4&amp;amp;nMenuCode=6&quot;&gt;모범 상담 조회&lt;/a&gt;에는 만족도도 표시되어 있으니 supervised learning도 해볼 수 있을 것 같고요. 오늘은 일단, 질문만 모두 모아서 word vector로 바꾸고, 어떤 작업들이 가능한지만 살펴볼 것입니다. 제가 이 자료에서 찾아보려는 것은 의과와는 구분되는 치과의 특성인데, 문제에 맞는 좋은 자료라고 생각합니다. 이 결과는 다음번에 소개드리겠습니다.&lt;/p&gt;
@@ -1530,6 +1542,10 @@ Floridi, L. and J. W. Sanders, 1999, “Entropy as Evil in Information Ethics,�
         <category>text</category>
         
         <category>R</category>
+        
+        <category>patient complaint</category>
+        
+        <category>semantic analysis</category>
         
         
         <category>text</category>
