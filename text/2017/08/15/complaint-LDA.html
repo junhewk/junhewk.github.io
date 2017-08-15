@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>환자 불편 상담에 관한 Latent Dirichlet Allocation 분석</title>
+  <meta name="description" content="환자 불편 상담에 관한 비지도 학습(Unsupervised Learning): LDA">
+  
+  <meta name="author" content="Junhewk Kim">
+  <meta name="copyright" content="&copy; Junhewk Kim 2017">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="환자 불편 상담에 관한 비지도 학습(Unsupervised Learning): LDA" />
+  <meta property="og:url" content="https://junhewk.github.io/text/2017/08/15/complaint-LDA.html" >
+  <meta property="og:site_name" content="Information Ethics" />
+  <meta property="og:title" content="환자 불편 상담에 관한 Latent Dirichlet Allocation 분석" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://junhewk.github.io/assets/face_image.jpg" />
+  <meta property="og:image:type" content="/image/jpg" />
+  <meta property="og:image:width" content="500" />
+  <meta property="og:image:height" content="375" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="환자 불편 상담에 관한 Latent Dirichlet Allocation 분석">
+  <meta name="twitter:description" content="환자 불편 상담에 관한 비지도 학습(Unsupervised Learning): LDA">
+  <meta name="twitter:image" content="https://junhewk.github.io/assets/logo.png">
+  <meta name="twitter:url" content="https://junhewk.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://junhewk.github.io/text/2017/08/15/complaint-LDA.html">
+  <link rel="alternate" type="application/rss+xml" title="Information Ethics" href="https://junhewk.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Information Ethics">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        
+          
+          <li class="nav-link"><a href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/posts/">Posts</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">환자 불편 상담에 관한 Latent Dirichlet Allocation 분석</h1>
+      <p class="info">by <strong>Junhewk Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">August 15, 2017</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/text">Text</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h1 id="unsupervised-learning-lda">환자 불편 상담에 관한 비지도 학습(Unsupervised Learning): LDA</h1>
+
+<p>이번에는 지난 번에 활용했던 <a href="http://www.1372.go.kr">1372 소비자보호원</a> 상담 자료를 통해 <a href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">LDA</a> (Latent Dirichlet Allocation)을 통한 분석을 진행해 보려 합니다. 먼저 참고한 페이지는 다음과 같습니다.</p>
+
+<ul>
+  <li>http://tidytextmining.com/topicmodeling.html</li>
+  <li>http://davidmeza1.github.io/2015/07/20/topic-modeling-in-R.html</li>
+  <li>https://begriffs.com/posts/2015-02-25-text-mining-in-r.html</li>
+  <li>https://ldavis.cpsievert.me/reviews/reviews.html</li>
+</ul>
+
+<h2 id="lda">LDA?</h2>
+
+<p>Latent Dirichlet Allocation은 텍스트 분류를 위해 등장한 여러 방법론 중 하나입니다. 일전에도 간략하게 말씀드린 적이 있지만, Document-Term Matrix(각 문서 별로 출현한 단어의 빈도를 나타낸 행렬)로 텍스트를 표현하여 각 단어의 등장 빈도에 따라 텍스트를 분류하려는 시도가 계속 이루어졌습니다. 그것은 분야에 따라 사용되는 단어가 다르다는 관찰에 기반하는데요, 예컨대 ‘드리블’이라는 단어가 나오는 텍스트면 축구 또는 스포츠 관련 텍스트겠지요. ‘염좌’나 ‘폐렴’이 나오는 텍스트는 아마 의학 관련 텍스트일 겁니다. 하지만 이 단어들은 문학에서도 나타날 수 있겠지요.</p>
+
+<p>그렇다면 특정 단어의 출현 여부를 넘어, 단어의 빈도가 텍스트의 분류를 결정할 수도 있을 것 같습니다. 예컨대 ‘폐렴’은 의학 교과서와 철학자 손택의 에세이 ‘질병이라는 은유’ 모두에 나오지만, 의학 교과서에서 더 많이 사용되었을 것이며, ‘폐렴’과 ‘폐수종’이 나타나는 경우 의학 교과서일 가능성이 더 높을 것입니다. 반면 ‘폐수종’은 손택의 에세이에서는 나타나지 않습니다. 즉, 여러 단어의 출현 빈도를 바탕으로 텍스트의 원 분류를 추측해보는 것이 텍스트 분류의 비지도 학습(Unsupervised learning of text classification)입니다.</p>
+
+<p>처음에 제시된 것은 <a href="https://en.wikipedia.org/wiki/Latent_semantic_analysis">LSA</a>(Latent Semantic Analysis)였습니다. Document-Term Matrix의 역행렬인 Term-Document Matrix의 <a href="https://en.wikipedia.org/wiki/Low-rank_approximation">low-rank approximation</a>을 구하는 방식으로 접근하고, 이를 위해 <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a>(Singular Value Decomposition)를 통한 차원 축소를 시행합니다. 두개 차원으로 축소하면, 텍스트를 이차원 평면에 도시하여 그 분포를 확인해볼 수도 있겠네요.</p>
+
+<p>계산이 간편하고 꽤 정확하게 들어맞는 경우들이 있어서 LSA도 여전히 사용되고 있지만, 이후 방법론은 발전을 거듭합니다. 그리고, 오늘 살펴볼 LDA는 최근 활발하게 연구되고 있는 방법론으로서, 단어의 사전 분포와 텍스트의 사전 분포가 있음을 가정하는 베이지안 기법을 통해, 단어와 텍스트의 분포를 추정하여 해당 텍스트의 주요 단어와 분류를 추측하는 방식입니다. 장점으로는 1. 분류에서 가장 중요도가 높은 단어들을 추출하여 해당 분류의 주제(topic)가 무엇인지 추측해볼 수 있다 2. 다항 분포의 사전 켤레확률인 <a href="https://en.wikipedia.org/wiki/Dirichlet_distribution">Dirichlet 분포</a>를 사용하여 모수를 가정하지 않으며, 계산이 간편하다 등을 제시할 수 있을 것 같습니다.</p>
+
+<p>이번에는, 치과 자료만 모아서 LDA를 통해 중요 단어를 추출, 상담 사례를 어떻게 분류할 수 있는지 확인해볼 것입니다.</p>
+
+<h2 id="package">사용 package</h2>
+
+<p>새로운 패키지가 몇 개 추가되었어요. <a href="https://cran.r-project.org/web/packages/lubridate/lubridate.pdf"><code class="highlighter-rouge">lubridate</code></a>는 손쉽게 <code class="highlighter-rouge">character</code> 형식을 <code class="highlighter-rouge">date</code> 형식으로 바꿔주는 패키지입니다. <a href="https://cran.r-project.org/web/packages/tm/index.html"><code class="highlighter-rouge">tm</code></a>은 text mining을 위한 패키지로, 텍스트 분석을 위해서는 가장 먼저 소개했어야 할텐데 사용이 늦었네요. <a href="https://cran.r-project.org/web/packages/topicmodels/topicmodels.pdf"><code class="highlighter-rouge">topicmodels</code></a>가 오늘의 핵심, LDA 분석 함수를 담고 있습니다. <a href="https://cran.r-project.org/web/packages/lda/lda.pdf"><code class="highlighter-rouge">LDA</code></a>도 있지만, 차이가 좀 있고 사용성 면에서는 <code class="highlighter-rouge">topicmodels</code>가, 알고리즘 면에서는 <code class="highlighter-rouge">LDA</code>가 좀 더 나은 면이 있습니다. <a href="https://cran.r-project.org/web/packages/LDAvis/LDAvis.pdf"><code class="highlighter-rouge">LDAvis</code></a>는 LDA의 결과를 시각화하는 도구이며, <a href="https://cran.r-project.org/web/packages/Rmpfr/Rmpfr.pdf"><code class="highlighter-rouge">Rmpfr</code></a>은 정교한 floating point number 연산을 지원합니다. 나중에 Topic 수 결정을 위해서 사용하게 됩니다.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">stringi</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">tidytext</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">KoNLP</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">tm</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">topicmodels</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">LDAvis</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">Rmpfr</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<hr />
+
+<h2 id="section">자료 불러오기</h2>
+
+<p>이번에도 <code class="highlighter-rouge">KoNLP</code>를 사용하되, “보건 일반” 관련 사전을 사용하고, 사용자 사전을 추가하는 방식으로 접근합니다. 대상 자료는 지난번에 수집해놓은 상담 자료를 다시 활용하였습니다.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">dics</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'sejong, woorimalsam'</span><span class="p">)</span><span class="w">
+</span><span class="n">category</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'health general'</span><span class="p">)</span><span class="w">
+</span><span class="n">user_d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s2">"치과"</span><span class="p">,</span><span class="w"> </span><span class="s2">"레진"</span><span class="p">,</span><span class="w"> </span><span class="s2">"임플란트"</span><span class="p">,</span><span class="w"> </span><span class="s2">"사랑니"</span><span class="p">,</span><span class="w"> </span><span class="s2">"보철물"</span><span class="p">,</span><span class="w"> </span><span class="s2">"치석"</span><span class="p">,</span><span class="w"> </span><span class="s2">"재치료"</span><span class="p">,</span><span class="w"> </span><span class="s2">"이메일"</span><span class="p">,</span><span class="w"> </span><span class="s2">"틀니"</span><span class="p">,</span><span class="w"> </span><span class="s2">"치아번호"</span><span class="p">,</span><span class="w"> </span><span class="s2">"브릿지"</span><span class="p">),</span><span class="w"> </span><span class="n">tag</span><span class="o">=</span><span class="nf">rep</span><span class="p">(</span><span class="s1">'ncn'</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">))</span><span class="w">
+</span><span class="n">buildDictionary</span><span class="p">(</span><span class="n">ext_dic</span><span class="o">=</span><span class="n">dics</span><span class="p">,</span><span class="w"> </span><span class="n">category_dic_nms</span><span class="o">=</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">user_dic</span><span class="o">=</span><span class="n">user_d</span><span class="p">,</span><span class="w"> </span><span class="n">replace_usr_dic</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>먼저 치과 관련 텍스트를 수집했습니다. 치과 관련 카테고리에 해당하는 텍스트를 모아, 자료의 분포를 확인해 보았습니다. 2014년에 급등했지만, 의료 관련 상담에서 15% 정도의</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">articles</span><span class="o">$</span><span class="n">rec</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ymd</span><span class="p">(</span><span class="n">articles</span><span class="o">$</span><span class="n">rec</span><span class="p">)</span><span class="w">
+</span><span class="n">articles</span><span class="o">$</span><span class="n">year</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">articles</span><span class="o">$</span><span class="n">rec</span><span class="p">)</span><span class="w">
+
+</span><span class="n">dental</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'치과'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치아교정'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과보증금환불'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과병원'</span><span class="p">,</span><span class="w"> </span><span class="s1">'임플란트 보철'</span><span class="p">,</span><span class="w"> </span><span class="s1">'이빨'</span><span class="p">,</span><span class="w"> </span><span class="s1">'임플란트'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과임풀란트'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과치료 불량'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과진료'</span><span class="p">,</span><span class="w"> </span><span class="s1">'페이스라인치과'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과보철치료'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과의료'</span><span class="p">,</span><span class="w"> </span><span class="s1">'한울치과'</span><span class="p">,</span><span class="w"> </span><span class="s1">'의료사고(치과)'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과보철'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과 보철비용'</span><span class="p">,</span><span class="w"> </span><span class="s1">'플라스틱 치아 교정기'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과 임프란트'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과 교정'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과교정'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치과 포철'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치아브릿지'</span><span class="p">,</span><span class="w"> </span><span class="s1">'치아'</span><span class="p">,</span><span class="w"> </span><span class="s1">'교합안정장치'</span><span class="p">,</span><span class="w"> </span><span class="s1">'충치 치료'</span><span class="p">)</span><span class="w">
+
+</span><span class="n">dental_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">articles</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">cat</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">dental</span><span class="p">)</span><span class="w">
+
+</span><span class="n">table</span><span class="p">(</span><span class="n">dental_df</span><span class="o">$</span><span class="n">cat</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##
+##         교합안정장치       의료사고(치과)                 이빨
+##                    1                    1                    2
+##             임플란트        임플란트 보철            충치 치료
+##                   12                    1                    1
+##                 치과            치과 교정        치과 보철비용
+##                  249                    1                    1
+##        치과 임프란트             치과교정             치과병원
+##                    1                    2                    1
+##       치과보증금환불             치과보철         치과보철치료
+##                    1                    1                    1
+##             치과의료         치과임풀란트             치과진료
+##                    1                    1                    2
+##        치과치료 불량                 치아             치아교정
+##                    1                    1                    2
+##           치아브릿지       페이스라인치과 플라스틱 치아 교정기
+##                    1                    1                    1
+##             한울치과
+##                    1
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">dental_df</span><span class="o">$</span><span class="n">rec</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ymd</span><span class="p">(</span><span class="n">dental_df</span><span class="o">$</span><span class="n">rec</span><span class="p">)</span><span class="w">
+</span><span class="n">dental_df</span><span class="o">$</span><span class="n">year</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">dental_df</span><span class="o">$</span><span class="n">rec</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">dental_df</span><span class="o">$</span><span class="n">year</span><span class="p">)</span><span class="o">/</span><span class="n">table</span><span class="p">(</span><span class="n">articles</span><span class="o">$</span><span class="n">year</span><span class="p">)),</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Var1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">Freq</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s1">'identity'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"Year"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="s2">"Frequency of dental complaints"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/assets/figure/2017-08-15-lda-occur year-1.png" alt="plot of chunk occur year" /></p>
+
+<hr />
+
+<h2 id="section-1">텍스트 전처리</h2>
+
+<p>먼저 필요한 오타를 정리하고 몇 가지 단어는 통일한 뒤, 숫자와 인터넷 주소를 제외시켰습니다. 자모로만 표현한 경우(ㅋㅋ, ㅜㅜ 등) 이모티콘으로 변경하였습니다. 다음, <code class="highlighter-rouge">KoNLP</code>의 <code class="highlighter-rouge">SimplePos22()</code> 함수를 통해 형태소 분석을 한 뒤, [지난 번]처럼 체언과 용언 만을 추출합니다.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">question</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">dental_df</span><span class="o">$</span><span class="n">main</span><span class="p">))</span><span class="w">
+</span><span class="n">question</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">question</span><span class="p">,</span><span class="w"> </span><span class="s2">"[[:punct:]]"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"[임|인][플|풀|프][란|런|랜]트"</span><span class="p">,</span><span class="w"> </span><span class="s2">"임플란트"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"스[켈|케일|캘]링"</span><span class="p">,</span><span class="w"> </span><span class="s2">"스케일링"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"레진(치료)*"</span><span class="p">,</span><span class="w"> </span><span class="s2">"레진"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"어금[이|니]"</span><span class="p">,</span><span class="w"> </span><span class="s2">"어금니"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"손해자"</span><span class="p">,</span><span class="w"> </span><span class="s2">"피해자"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"[0-9]+번"</span><span class="p">,</span><span class="w"> </span><span class="s2">"치아번호 "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"의사[선생]*[님]*"</span><span class="p">,</span><span class="w"> </span><span class="s2">"의사"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"치아교정"</span><span class="p">,</span><span class="w"> </span><span class="s2">"교정"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"없읍"</span><span class="p">,</span><span class="w"> </span><span class="s2">"없습"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"[0-9]+"</span><span class="p">,</span><span class="w"> </span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"\\s+"</span><span class="p">,</span><span class="w"> </span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"http[a-zA-Z0-9]+"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">str_replace_all</span><span class="p">(</span><span class="s2">"[ㄱ-ㅎㅏ-ㅣ]+"</span><span class="p">,</span><span class="w"> </span><span class="s2">"이모티콘"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ko_words</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="w">
+  </span><span class="n">pos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">unlist</span><span class="p">(</span><span class="n">SimplePos22</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="w">
+
+  </span><span class="n">extracted</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">str_match</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="s1">'([가-힣]+)/[NP][A-Z]'</span><span class="p">)</span><span class="w">
+
+  </span><span class="n">keyword</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">extracted</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span><span class="w">
+  </span><span class="n">keyword</span><span class="p">[</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">keyword</span><span class="p">)]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">pos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Map</span><span class="p">(</span><span class="n">ko_words</span><span class="p">,</span><span class="w"> </span><span class="n">question</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>다음, <code class="highlighter-rouge">tm</code>의 <code class="highlighter-rouge">DocumentTermMatrix()</code>를 통해 Document-Term Matrix를 계산합니다. 이때 불용어로 “치과”, “치료” 등을 제외시켰는데, 이것은 다른 단어에 비해 압도적으로 빈도가 높은 단어가 있으면 분포가 그 쪽으로 쏠리기 때문입니다. 이 단어들은 거의 모든 텍스트에 등장하기 때문에 제외시켰습니다. 또, 두 글자 미만, 또는 열 글자 이상의 단어는 제외시켰습니다. <code class="highlighter-rouge">weighting=weightTf</code>는 term frequency, 즉 텍스트에서 단어 출현 빈도로 document-term matrix를 구축하도록 합니다.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">corpus</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Corpus</span><span class="p">(</span><span class="n">VectorSource</span><span class="p">(</span><span class="n">pos</span><span class="p">))</span><span class="w">
+
+</span><span class="n">stopWords</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"치과"</span><span class="p">,</span><span class="w"> </span><span class="s2">"치료"</span><span class="p">,</span><span class="w"> </span><span class="s2">"치아"</span><span class="p">,</span><span class="w"> </span><span class="s2">"병원"</span><span class="p">,</span><span class="w"> </span><span class="s2">"만원"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">dtm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">DocumentTermMatrix</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="w">
+  </span><span class="n">removePunctuation</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">stopwords</span><span class="o">=</span><span class="n">stopWords</span><span class="p">,</span><span class="w">
+  </span><span class="n">removeNumbers</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">wordLengths</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">weighting</span><span class="o">=</span><span class="n">weightTf</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<hr />
+
+<h2 id="lda-">기초 LDA 분석</h2>
+
+<p>먼저 간단하게 LDA 분석 결과를 확인하기 위하여, <code class="highlighter-rouge">tidytext</code> 패키지와 결합하여 어떤 방식으로 결과가 나오는지 살펴보겠습니다. 먼저, <code class="highlighter-rouge">topicmodels</code>의 <code class="highlighter-rouge">LDA</code> 함수로 텍스트를 분류합니다. <code class="highlighter-rouge">k</code>는 텍스트를 몇 개의 집단으로 나눌 것인지 정하는 사전변수입니다. 먼저, 두 집단으로 나눠서 결과를 볼게요.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">q_lda</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">LDA</span><span class="p">(</span><span class="n">dtm</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="o">=</span><span class="m">1234</span><span class="p">)</span><span class="w">
+
+</span><span class="n">q_topics</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tidy</span><span class="p">(</span><span class="n">q_lda</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="o">=</span><span class="s2">"beta"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">q_top_terms</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">q_topics</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">top_n</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">ungroup</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">beta</span><span class="p">)</span><span class="w">
+
+</span><span class="n">q_top_terms</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="n">reorder</span><span class="p">(</span><span class="n">term</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">term</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="o">=</span><span class="n">factor</span><span class="p">(</span><span class="n">topic</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_col</span><span class="p">(</span><span class="n">show.legend</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">scales</span><span class="o">=</span><span class="s2">"free"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">coord_flip</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.text.y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"Apple SD Gothic Neo"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/assets/figure/2017-08-15-lda-LDA 1-1.png" alt="plot of chunk LDA 1" /></p>
+
+<p>두 집단으로 나눠본 결과, 비슷하게 등장하는 단어들을 빼면 topic 1에는 교정, 임플란트가, topic 2에는 의사, 대하(다)가 눈에 띄네요. 위의 결과는 각 집단에서 가장 출현확률(beta)이 높은 단어를 모은 방식입니다. 이번에는, 두 집단 출현확를의 차이로 나열해 보겠습니다.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">beta_spread</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">q_topics</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">topic</span><span class="o">=</span><span class="n">paste0</span><span class="p">(</span><span class="s2">"topic"</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">spread</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">topic1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">.001</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">topic2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">.001</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">log_ratio</span><span class="o">=</span><span class="nf">log</span><span class="p">(</span><span class="n">topic2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">topic1</span><span class="p">))</span><span class="w">
+
+</span><span class="n">bind_rows</span><span class="p">(</span><span class="n">beta_spread</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">top_n</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="n">log_ratio</span><span class="p">),</span><span class="w"> </span><span class="n">beta_spread</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">top_n</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">log_ratio</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">reorder</span><span class="p">(</span><span class="n">term</span><span class="p">,</span><span class="w"> </span><span class="n">log_ratio</span><span class="p">),</span><span class="w"> </span><span class="n">log_ratio</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_col</span><span class="p">(</span><span class="n">show.legend</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"term"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="s2">"Log2 ratio of beta in topic 2 / topic 1"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">coord_flip</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.text.y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"Apple SD Gothic Neo"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/assets/figure/2017-08-15-lda-LDA 1 beta-1.png" alt="plot of chunk LDA 1 beta" /></p>
+
+<p>두 집단에서 출현확률의 차이로 비교해보면, topic 1은 어머님, 브릿지가, topic 2는 항생제, 흉터가 중요하게 나타납니다. 위의 결과와 종합하여 생각해보면, topic 1은 진료 관련 상담, topic 2는 진료 서비스 및 후유증 등에 관한 상담인 것으로 생각해볼 수 있습니다. 실제로 각 텍스트가 어느 집단으로 분류되었는지 볼까요?</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">q_documents</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tidy</span><span class="p">(</span><span class="n">q_lda</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="o">=</span><span class="s2">"gamma"</span><span class="p">)</span><span class="w">
+</span><span class="n">q_documents</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 564 × 3
+##    document topic        gamma
+##       &lt;chr&gt; &lt;int&gt;        &lt;dbl&gt;
+## 1         1     1 0.0010958588
+## 2         2     1 0.0014860737
+## 3         3     1 0.9997471939
+## 4         4     1 0.9986573537
+## 5         5     1 0.9983361908
+## 6         6     1 0.0015409439
+## 7         7     1 0.0004532204
+## 8         8     1 0.0001689069
+## 9         9     1 0.0013872770
+## 10       10     1 0.7181085591
+## # ... with 554 more rows
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">tidy</span><span class="p">(</span><span class="n">dtm</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">document</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">8</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 173 × 3
+##    document   term count
+##       &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;
+## 1         8   수술    12
+## 2         8 아버지     5
+## 3         8   의사     5
+## 4         8   진료     5
+## 5         8   금액     4
+## 6         8 보호자     4
+## 7         8   안하     4
+## 8         8   지불     4
+## 9         8   거부     3
+## 10        8   당일     3
+## # ... with 163 more rows
+</code></pre>
+</div>
+
+<p>처음 10개의 문서 중 topic 1일 가능성이 가장 낮은 문서 8번을 보면, 수술, 아버지, 의사, 진료, 금액 등의 단어로 구성되어 있습니다. 아버지의 치과 수술 관련한 비용 상담인 것을 확인해볼 수 있습니다.</p>
+
+<p>이어, 네 개의 집단으로 나눠보겠습니다.</p>
+
+<hr />
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">q</span><span class="m">2</span><span class="err">_</span><span class="n">lda</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">LDA</span><span class="p">(</span><span class="n">dtm</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="o">=</span><span class="m">1234</span><span class="p">)</span><span class="w">
+
+</span><span class="n">q</span><span class="m">2</span><span class="err">_</span><span class="n">topics</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tidy</span><span class="p">(</span><span class="n">q</span><span class="m">2</span><span class="err">_</span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="o">=</span><span class="s2">"beta"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">top_terms</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">q</span><span class="m">2</span><span class="err">_</span><span class="n">topics</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">top_n</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">ungroup</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">beta</span><span class="p">)</span><span class="w">
+
+</span><span class="n">top_terms</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="n">reorder</span><span class="p">(</span><span class="n">term</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">term</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="o">=</span><span class="n">factor</span><span class="p">(</span><span class="n">topic</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_col</span><span class="p">(</span><span class="n">show.legend</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.text.y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">"Apple SD Gothic Neo"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">scales</span><span class="o">=</span><span class="s2">"free"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">coord_flip</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/assets/figure/2017-08-15-lda-LDA 4-1.png" alt="plot of chunk LDA 4" /></p>
+
+<p>네 개의 topic으로 분류하여 주요 단어 7개를 나열해 보았습니다. topic 1은 아니(다), 대하(다), 비용 등이, topic 2는 대하(다), 임플란트, 의사가, topic 3은 교정, 의사, 비용이, topic 4는 의사, 대하(다), 임플란트 등이 중요 단어로 나타나네요. 어느 정도는 topic이 짐작되지만 정확히 확인하기는 어렵죠. 따라서, 실제로 문헌 분석을 위해서 <a href="http://vanatteveldt.com/p/jacobi2015_lda.pdf">Jacobi 등</a>은 topic browser를 만들어서 활용할 것을 권하고 있습니다. Topic brower란, topic의 중요 단어와 가장 일치도가 높은 텍스트를 같이 보면서 해당 topic의 주제를 추측할 수 있도록 하는 방식을 의미합니다.</p>
+
+<hr />
+
+<h2 id="k--ldavis">K값 정하기와 LDAvis</h2>
+
+<p>여기까지 보셨으면 <code class="highlighter-rouge">LDA</code>를 위해 K값, 즉 집단의 갯수를 정해주어야 한다는 것을 아셨을 겁니다. <code class="highlighter-rouge">k-means clustering</code>과 비슷하죠. 그리고 분류 갯수 결정의 최적화 방식은 아직 의견이 분분합니다. 보통은 2부터 4, 50개까지, 대규모 자료의 경우는 100~200개까지 분류해보고 log likelihood 값의 <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a>이 최대가 되는 K값, 또는 <a href="https://en.wikipedia.org/wiki/Perplexity">perplexity</a> 값의 변화가 최소가 되는 지점(RPC: Rate of perplexity change)의 K값을 사용합니다. 여기에서는 harmonic mean을 구해 K값을 결정합니다. 2~40개의 K 값으로 LDA를 구하며, 이때 <a href="https://en.wikipedia.org/wiki/Gibbs_sampling">Gibbs sampling</a> 방식으로 모형을 구축해 볼 것입니다. Gibbs sampling은 간단히 말하면 변수를 하나씩 바꿔가면서 표본을 수집하여 모형을 근사하는 방식입니다. 이때, <code class="highlighter-rouge">burnin</code>은 처음부터 burnin에 지정한 값까지는 제외시키고 나머지 값만을 모형 근사에 사용하겠다는 선언이며, <code class="highlighter-rouge">iter</code>는 몇 개까지 표본을 수집할지를, <code class="highlighter-rouge">keep</code>은 정한 값마다 log likelihood 값을 구해서 저장하도록 설정하는 변수입니다. 이 시도를 통해 구한 log likelihood 값의 최빈값을 통해 harmonic mean을 구하는 방식은 <a href="http://epub.wu.ac.at/3558/1/main.pdf">Ponweiser</a>의 논문에 정리되어 있습니다.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">data.frame</span><span class="p">(</span><span class="n">seqk</span><span class="p">,</span><span class="w"> </span><span class="n">hm_many</span><span class="p">),</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">seqk</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">hm_many</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_path</span><span class="p">(</span><span class="n">lwd</span><span class="o">=</span><span class="m">1.5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="kc">NULL</span><span class="p">),</span><span class="w">
+        </span><span class="n">axis.title.y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">vjust</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">),</span><span class="w">
+        </span><span class="n">axis.title.x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">vjust</span><span class="o">=</span><span class="m">-.5</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">),</span><span class="w">
+        </span><span class="n">axis.text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">16</span><span class="p">),</span><span class="w">
+        </span><span class="n">plot.title</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">20</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">xlab</span><span class="p">(</span><span class="s1">'Number of Topics'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ylab</span><span class="p">(</span><span class="s1">'Harmonic Mean'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ggplot2</span><span class="o">::</span><span class="n">annotate</span><span class="p">(</span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="m">-199000</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="n">paste</span><span class="p">(</span><span class="s2">"The optimal number of topics is"</span><span class="p">,</span><span class="w"> </span><span class="n">seqk</span><span class="p">[</span><span class="n">which.max</span><span class="p">(</span><span class="n">hm_many</span><span class="p">)]))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Latent Dirichlet Allocation Analysis"</span><span class="p">,</span><span class="w">
+       </span><span class="n">subtitle</span><span class="o">=</span><span class="s2">"How many distinct topics?"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/assets/figure/2017-08-15-lda-harmonic mean plot-1.png" alt="plot of chunk harmonic mean plot" /></p>
+
+<p>17에서 harmonic mean이 최대로 나오네요. <code class="highlighter-rouge">K=17</code>로 모형을 구축해 볼까요?</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">q_model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">LDA</span><span class="p">(</span><span class="n">dtm</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="m">17</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s2">"Gibbs"</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">iter</span><span class="o">=</span><span class="m">2000</span><span class="p">))</span><span class="w">
+
+</span><span class="n">q_topics</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">topics</span><span class="p">(</span><span class="n">q_model</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="n">q_terms</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">terms</span><span class="p">(</span><span class="n">q_model</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">stringsAsFactors</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span><span class="n">q_terms</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##     Topic 1 Topic 2 Topic 3 Topic 4    Topic 5
+## 1      교정    이빨    저희    전화       레진
+## 2      그렇    앞니    못하    환자     떨어지
+## 3      시간    본인    어떻    못하       붙이
+## 4    기다리    설명    돌리    연락       다르
+## 5      진료    비용    안되    안되       시리
+## 6      장치    방법    오늘    안녕       나중
+## 7      끝나  브릿지  어머니    바뀌     피해자
+## 8    교정기    비싸    다르    예약       부위
+## 9      얘기    생각    엄마    모르       피하
+## 10     때문    정도    손상    사람     벌어지
+## 11 유지장치    느끼  어머님  이야기   유디치과
+## 12     사람    자기    진료  원장님     조금씩
+## 13     정도    원장    소개    실장       철사
+## 14     문제    윗니  치료후    요청     재치료
+## 15     환불  아랫니    현금    원장 부탁드립니
+## 16     이해    태도  계약금    내원       아이
+## 17     본인    고르    삽입    내용       나가
+## 18 교정장치    불편    알리    입장       첨부
+## 19     근데    잘못    무료    아니     치료전
+## 20     착용    때문    그렇    다니       동안
+</code></pre>
+</div>
+
+<p>topic 1~5의 중심 단어를 나열해 보았습니다. topic 1은 임플란트 수술 관련, topic 2는 비용 상담 관련, topic 3은 충치와 교정치료 관련, topic 4는 치료 통증 관련, topic 5는 진료 상담 관련 내용인 것으로 추측해볼 수 있겠네요. 이제, 시각화를 위해 <code class="highlighter-rouge">LDAvis</code> 패키지를 사용해 볼 것입니다. LDAvis 사용을 위해서는 <code class="highlighter-rouge">phi, theta, vocab, doc.length, term.frequency</code> list를 만들어서 <code class="highlighter-rouge">createJSON</code> 함수에 넣어준 다음, <code class="highlighter-rouge">serVis</code> 함수를 적용하면 지정한 폴더에 결과가 저장됩니다.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">K</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">17</span><span class="w">
+</span><span class="n">G</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">5000</span><span class="w">
+</span><span class="n">alpha</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.02</span><span class="w">
+
+</span><span class="n">fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">LDA</span><span class="p">(</span><span class="n">dtm</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">'Gibbs'</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">iter</span><span class="o">=</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">))</span><span class="w">
+
+</span><span class="n">phi</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">posterior</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span><span class="o">$</span><span class="n">terms</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">as.matrix</span><span class="w">
+</span><span class="n">theta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">posterior</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span><span class="o">$</span><span class="n">topics</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">as.matrix</span><span class="w">
+</span><span class="n">vocab</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">colnames</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="w">
+</span><span class="n">doc_length</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span><span class="w">
+</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">corpus</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="n">corpus</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="o">$</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span><span class="w">
+  </span><span class="n">doc_length</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">doc_length</span><span class="p">,</span><span class="w"> </span><span class="n">stri_count</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">regex</span><span class="o">=</span><span class="s1">'\\S+'</span><span class="p">))</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="n">temp_frequency</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as.matrix</span><span class="p">(</span><span class="n">dtm</span><span class="p">)</span><span class="w">
+</span><span class="n">freq_matrix</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">ST</span><span class="o">=</span><span class="n">colnames</span><span class="p">(</span><span class="n">temp_frequency</span><span class="p">),</span><span class="w">
+                          </span><span class="n">Freq</span><span class="o">=</span><span class="n">colSums</span><span class="p">(</span><span class="n">temp_frequency</span><span class="p">))</span><span class="w">
+</span><span class="n">rm</span><span class="p">(</span><span class="n">temp_frequency</span><span class="p">)</span><span class="w">
+
+</span><span class="n">json_lda</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">createJSON</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="n">phi</span><span class="p">,</span><span class="w">
+                       </span><span class="n">theta</span><span class="o">=</span><span class="n">theta</span><span class="p">,</span><span class="w">
+                       </span><span class="n">vocab</span><span class="o">=</span><span class="n">vocab</span><span class="p">,</span><span class="w">
+                       </span><span class="n">doc.length</span><span class="o">=</span><span class="n">doc_length</span><span class="p">,</span><span class="w">
+                       </span><span class="n">term.frequency</span><span class="o">=</span><span class="n">freq_matrix</span><span class="o">$</span><span class="n">Freq</span><span class="p">)</span><span class="w">
+
+</span><span class="n">serVis</span><span class="p">(</span><span class="n">json_lda</span><span class="p">,</span><span class="w"> </span><span class="n">out.dir</span><span class="o">=</span><span class="s1">'2017-08-15-complaint-vis'</span><span class="p">,</span><span class="w"> </span><span class="n">open.browser</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>결과를 볼까요? <a href="/asset/2017-08-15-complaint-vis/index.html">https://junhewk.github.com/asset/2017-08-15-complaint-vis/index.html</a>입니다.</p>
+
+<p>왼쪽에는 topic의 분포와 상대적인 거리가, 오른쪽에는 각 topic의 중심 단어 및 전체 출현 숫자에서의 비율이 표시됩니다. 먼저 <a href="/asset/2017-08-15-complaint-vis/index.html#topic=1&amp;lambda=1&amp;term=">https://junhewk.github.com/asset/2017-08-15-complaint-vis/index.html#topic=1&amp;lambda=1&amp;term=</a>를 보면, 전체의 절반 가까운 텍스트가 하나의 topic으로 분류된 것을 확인할 수 있습니다. 단어 분포를 보니 의사의 태도 및 치료 비용 관련 상담, 즉 진료 서비스 관련 문제 제기인 것으로 보이네요. 전체 상담의 절반을 차지하고 있는 것에 주목할 필요가 있을 것 같습니다.</p>
+
+<p>다음은 전체의 5% 정도를 각각 차지하는 <a href="/asset/2017-08-15-complaint-vis/index.html#topic=2&amp;lambda=1&amp;term=">topic 2</a>, <a href="/asset/2017-08-15-complaint-vis/index.html#topic=3&amp;lambda=1&amp;term=">topic 3</a>입니다. topic 2는 신경치료 등에서 발생한 통증 관련 상담, topic 3는 교정 장치 및 유지장치 관련 상담이네요.</p>
+
+<p>나머지 14개의 topic은 상대적 거리가 근접해 있습니다. 워낙 topic 1, 2, 3이 두드러져서 그렇기도 할 것이고, 치료 관련 상담에서 주제가 편중되는 것은 어찌보면 당연할 것 같아요. 커서를 원 위에 올리면 해당 topic의 주제어들을 확인하실 수 있습니다.</p>
+
+<h2 id="section-2">마치며</h2>
+
+<p>이번에는 치과 불만 상담 관련하여 자료를 살펴보고, 비지도 학습 방법인 LDA로 분류하여 각 topic의 주제를 분석해 보았습니다. 치과가 전체 의료 불만 상담의 15%를 차지하며, 그 절반이 서비스(‘의사’가 ‘대하’는 방식, ‘비용’ 관련하여 ‘못하’거나/겠다는 표현–아마 치료가 잘못되었거나 치과와 분쟁 조정이 잘 이뤄지지 않은 것을 의미하는 것 같습니다–이 주로 등장하는) 관련 이라는 것에 관해 좀 더 곰곰히 생각해 볼 필요가 있을 것 같습니다. 다음 번에는, 의과와 치과가 어떻게 차이가 나는지 확인해 볼게요.</p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/text">text</a>,&nbsp;<a href="/tag/R">R</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%ED%99%98%EC%9E%90+%EB%B6%88%ED%8E%B8+%EC%83%81%EB%8B%B4%EC%97%90+%EA%B4%80%ED%95%9C+Latent+Dirichlet+Allocation+%EB%B6%84%EC%84%9D&u=https%3A%2F%2Fjunhewk.github.io%2Ftext%2F2017%2F08%2F15%2Fcomplaint-LDA.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'junhewk';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Information Ethics</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <li class="nav-link"><a href="/about/">About</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/posts/">Posts</a>
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:analyticsophia@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">analyticsophia@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="www.facebook.com/analyticsophia" title="Friend me on Facebook">
+              <i class="fa fa-facebook"></i>
+              <span class="username">analyticsophia</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/junhewk" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">junhewk</span>
+            </a>
+          </li>
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">의료인문학, 의료윤리, 텍스트 분석을 중심으로 한 데이터 분석
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-102102649-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/text/2017/08/15/complaint-LDA.html',
+    'title': '환자 불편 상담에 관한 Latent Dirichlet Allocation 분석'
+  });
+</script>
+
+
+
+  </body>
+
+</html>
