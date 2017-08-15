@@ -6,8 +6,8 @@
 </description>
     <link>https://junhewk.github.io/</link>
     <atom:link href="https://junhewk.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Aug 2017 14:37:22 -0400</pubDate>
-    <lastBuildDate>Tue, 15 Aug 2017 14:37:22 -0400</lastBuildDate>
+    <pubDate>Tue, 15 Aug 2017 14:42:37 -0400</pubDate>
+    <lastBuildDate>Tue, 15 Aug 2017 14:42:37 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -373,11 +373,11 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;결과를 볼까요? &lt;a href=&quot;/asset/2017-08-15-complaint-vis/index.html&quot;&gt;https://junhewk.github.com/asset/2017-08-15-complaint-vis/index.html&lt;/a&gt;입니다.&lt;/p&gt;
+&lt;p&gt;결과를 볼까요? &lt;a href=&quot;/assets/2017-08-15-complaint-vis/index.html&quot;&gt;https://junhewk.github.io/asset/2017-08-15-complaint-vis/index.html&lt;/a&gt;입니다.&lt;/p&gt;
 
-&lt;p&gt;왼쪽에는 topic의 분포와 상대적인 거리가, 오른쪽에는 각 topic의 중심 단어 및 전체 출현 숫자에서의 비율이 표시됩니다. 먼저 &lt;a href=&quot;/asset/2017-08-15-complaint-vis/index.html#topic=1&amp;amp;lambda=1&amp;amp;term=&quot;&gt;https://junhewk.github.com/asset/2017-08-15-complaint-vis/index.html#topic=1&amp;amp;lambda=1&amp;amp;term=&lt;/a&gt;를 보면, 전체의 절반 가까운 텍스트가 하나의 topic으로 분류된 것을 확인할 수 있습니다. 단어 분포를 보니 의사의 태도 및 치료 비용 관련 상담, 즉 진료 서비스 관련 문제 제기인 것으로 보이네요. 전체 상담의 절반을 차지하고 있는 것에 주목할 필요가 있을 것 같습니다.&lt;/p&gt;
+&lt;p&gt;왼쪽에는 topic의 분포와 상대적인 거리가, 오른쪽에는 각 topic의 중심 단어 및 전체 출현 숫자에서의 비율이 표시됩니다. 먼저 &lt;a href=&quot;/assets/2017-08-15-complaint-vis/index.html#topic=1&amp;amp;lambda=1&amp;amp;term=&quot;&gt;https://junhewk.github.io/asset/2017-08-15-complaint-vis/index.html#topic=1&amp;amp;lambda=1&amp;amp;term=&lt;/a&gt;를 보면, 전체의 절반 가까운 텍스트가 하나의 topic으로 분류된 것을 확인할 수 있습니다. 단어 분포를 보니 의사의 태도 및 치료 비용 관련 상담, 즉 진료 서비스 관련 문제 제기인 것으로 보이네요. 전체 상담의 절반을 차지하고 있는 것에 주목할 필요가 있을 것 같습니다.&lt;/p&gt;
 
-&lt;p&gt;다음은 전체의 5% 정도를 각각 차지하는 &lt;a href=&quot;/asset/2017-08-15-complaint-vis/index.html#topic=2&amp;amp;lambda=1&amp;amp;term=&quot;&gt;topic 2&lt;/a&gt;, &lt;a href=&quot;/asset/2017-08-15-complaint-vis/index.html#topic=3&amp;amp;lambda=1&amp;amp;term=&quot;&gt;topic 3&lt;/a&gt;입니다. topic 2는 신경치료 등에서 발생한 통증 관련 상담, topic 3는 교정 장치 및 유지장치 관련 상담이네요.&lt;/p&gt;
+&lt;p&gt;다음은 전체의 5% 정도를 각각 차지하는 &lt;a href=&quot;/assets/2017-08-15-complaint-vis/index.html#topic=2&amp;amp;lambda=1&amp;amp;term=&quot;&gt;topic 2&lt;/a&gt;, &lt;a href=&quot;/assets/2017-08-15-complaint-vis/index.html#topic=3&amp;amp;lambda=1&amp;amp;term=&quot;&gt;topic 3&lt;/a&gt;입니다. topic 2는 신경치료 등에서 발생한 통증 관련 상담, topic 3는 교정 장치 및 유지장치 관련 상담이네요.&lt;/p&gt;
 
 &lt;p&gt;나머지 14개의 topic은 상대적 거리가 근접해 있습니다. 워낙 topic 1, 2, 3이 두드러져서 그렇기도 할 것이고, 치료 관련 상담에서 주제가 편중되는 것은 어찌보면 당연할 것 같아요. 커서를 원 위에 올리면 해당 topic의 주제어들을 확인하실 수 있습니다.&lt;/p&gt;
 
