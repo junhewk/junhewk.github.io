@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Information Ethics</title>
-    <description>의료인문학, 의료윤리, 텍스트 분석을 중심으로 한 데이터 분석
+    <title>Ethics in real life</title>
+    <description>의료인문학, 의료윤리, 정보윤리 등을 다루는 블로그입니다. 텍스트 분석은 junhewk.github.io/text/로 분리하였습니다. 위의 'text'로 연결됩니다.
 </description>
     <link>https://junhewk.github.io/</link>
     <atom:link href="https://junhewk.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 25 Sep 2017 15:45:12 -0400</pubDate>
-    <lastBuildDate>Mon, 25 Sep 2017 15:45:12 -0400</lastBuildDate>
+    <pubDate>Mon, 02 Oct 2017 10:50:21 -0400</pubDate>
+    <lastBuildDate>Mon, 02 Oct 2017 10:50:21 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
